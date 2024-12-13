@@ -6,7 +6,7 @@ const BrandsSection = () => {
     {
       id: 1,
       name: 'Pepsi',
-      imageUrl: '/public/brands/pepsi.webp'
+      imageUrl: '../assets/marcas/pepsi.webp'
     },
     {
       id: 2,
