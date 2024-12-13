@@ -34,7 +34,7 @@ router.get('/:locationId', asyncHandler(async (req, res) => {
 }));
 
 // Admin routes
-router.use(auth);
+// router.use(auth);
 
 // Get full menu for admin
 router.get('/admin/full', asyncHandler(async (req, res) => {
