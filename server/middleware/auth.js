@@ -12,6 +12,6 @@ export const auth = (req, res, next) => {
     req.user = decoded;
     next();
   } catch (error) {
-    res.status(401).json({ message: 'Please authenticate' });
+    res.status(401).json({ message: 'Please Authenticate' });
   }
 };

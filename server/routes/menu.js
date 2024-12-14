@@ -2,7 +2,6 @@ import express from 'express';
 import Menu from '../models/Menu.js';
 import { auth } from '../middleware/auth.js';
 import asyncHandler from 'express-async-handler';
-import { AppError } from '../utils/AppError.js';
 
 const router = express.Router();
 
@@ -12,7 +11,7 @@ router.get('/:locationId', asyncHandler(async (req, res) => {
   const location = menu.locations.find(loc => loc.id === req.params.locationId);
 
   if (!location) {
-    throw new AppError('Location not found', 404);
+    throw new Error('Location not found');
   }
 
   // Filter menu data for specific location
@@ -63,7 +62,7 @@ router.patch('/admin/items/:itemId/locations/:locationId', auth, asyncHandler(as
   });
 
   if (!itemUpdated) {
-    throw new AppError('Item not found', 404);
+    throw new Error('Item not found');
   }
 
   await menu.save();
