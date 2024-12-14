@@ -88,7 +88,7 @@ export const updateUser = asyncHandler(async (req, res, next) => {
     return next(err);
   }
 
-  if (findUser._id.toString() !== req.user._id) {
+  if (findUser._id.toString() !== req.user.id) {
     const err = new Error('User not Authorized');
     err.status = 401;
     return next(err);
@@ -103,7 +103,7 @@ export const updateUser = asyncHandler(async (req, res, next) => {
   )
 
   if (updateUser) {
-    res.status(200).json(findUser);
+    res.status(200).json(updateUser);
   } else {
     res.status(500).json({ msg: 'Something went wrong while trying to update your user' });
   }

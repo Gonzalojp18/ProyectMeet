@@ -28,5 +28,14 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3000/api/auth/:id
+PUT http://localhost:3000/api/auth/675deb55cb50301958128328
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6IjY3NWRlYjU1Y2I1MDMwMTk1ODEyODMyOCIsInJvbGUiOiJtYW5hZ2VyIn0sImlhdCI6MTczNDIwODc2OCwiZXhwIjoxNzM0Mjk1MTY4fQ.kFpkz7YbMD-8UnLE0R8fxOy7T-ol3z6heXMbb1FYgLU
+
+{
+  "name": "Adrian Felipe Covarrubias Merlo"
+}
+
+###
+
+# Menu API
