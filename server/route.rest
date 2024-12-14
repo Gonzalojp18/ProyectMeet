@@ -2,7 +2,8 @@
 
 GET http://localhost:3000/api/auth
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6IjY3NWRlYjU1Y2I1MDMwMTk1ODEyODMyOCIsInJvbGUiOiJtYW5hZ2VyIn0sImlhdCI6MTczNDIwODM0MSwiZXhwIjoxNzM0Mjk0NzQxfQ.5lZFqwr2UE6g95-na8-es9cuZ8TSG5fDz_2zG2PkqNs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6IjY3NWRlYjU1Y2I1MDMwMTk1ODEyODMyOCIsInJvbGUiOiJtYW5hZ2VyIn0sImlhdCI6MTczNDIwODc2OCwiZXhwIjoxNzM0Mjk1MTY4fQ.kFpkz7YbMD-8UnLE0R8fxOy7T-ol3z6heXMbb1FYgLU
+
 
 ###
 
