@@ -1,7 +1,7 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
-import { asyncHandler } from '../middleware/asyncHandler.js';
+import asyncHandler from 'express-async-handler'
 import { AppError } from '../utils/AppError.js';
 
 const router = express.Router();

@@ -1,7 +1,7 @@
 import express from 'express';
 import Menu from '../models/Menu.js';
 import { auth } from '../middleware/auth.js';
-import { asyncHandler } from '../middleware/asyncHandler.js';
+import asyncHandler from 'express-async-handler';
 import { AppError } from '../utils/AppError.js';
 
 const router = express.Router();

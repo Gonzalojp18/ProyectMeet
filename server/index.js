@@ -16,6 +16,7 @@ const app = express();
 
 app.use(cors());
 
+// Handling Data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
