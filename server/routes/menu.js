@@ -1,6 +1,5 @@
 import express from 'express';
 import Menu from '../models/Menu.js';
-import { auth } from '../middleware/auth.js';
 import asyncHandler from 'express-async-handler';
 
 const router = express.Router();
@@ -42,7 +41,7 @@ router.get('/admin/full', asyncHandler(async (req, res) => {
 }));
 
 // Update item availability for specific location
-router.patch('/admin/items/:itemId/locations/:locationId', auth, asyncHandler(async (req, res) => {
+router.patch('/admin/items/:itemId/locations/:locationId', asyncHandler(async (req, res) => {
   const { itemId, locationId } = req.params;
   const { price, isAvailable } = req.body;
 
