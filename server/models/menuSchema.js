@@ -57,4 +57,4 @@ const menuSchema = new mongoose.Schema({
   lastUpdated: { type: Date, default: Date.now }
 });
 
-export default mongoose.model('Menu', menuSchema);
+export default mongoose.model('menus', menuSchema);

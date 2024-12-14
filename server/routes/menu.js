@@ -1,5 +1,5 @@
 import express from 'express';
-import Menu from '../models/Menu.js';
+import Menu from '../models/menuSchema.js';
 import asyncHandler from 'express-async-handler';
 
 const router = express.Router();
