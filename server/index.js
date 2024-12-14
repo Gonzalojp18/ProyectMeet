@@ -4,20 +4,21 @@ import dotenv from 'dotenv';
 import menuRoutes from './routes/menu.js';
 import authRoutes from './routes/auth.js';
 import { errorHandler } from './middleware/errorHandler.js';
-import connectDB from './config/db.js';
+import connectDB from './database/db.js';
 import colors from 'colors';
 
-const PORT = process.env.PORT || 4000;
-
 dotenv.config();
+
+// Const PORT
+const PORT = process.env.PORT || 4000;
 
 const app = express();
 
 app.use(cors());
 
 // Handling Data
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // Get json data
+app.use(express.urlencoded({ extended: true })); // Get form data
 
 // Connect to MongoDB
 connectDB();
@@ -29,6 +30,7 @@ app.use('/api/auth', authRoutes);
 // Error handling
 app.use(errorHandler);
 
+// App listening
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`.cyan);
 });
