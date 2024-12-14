@@ -6,6 +6,7 @@ import menuRoutes from './routes/menu.js';
 import authRoutes from './routes/auth.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import { AppError } from './utils/AppError.js';
+import connectDB from './config/db.js';
 
 dotenv.config({ path: './.env' }); // Asegúrate de cargar el archivo .env
 console.log('MONGODB_URI:', process.env.MONGODB_URI);
@@ -17,13 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb://root:sanguinario@localhost:27017/resto', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.error('MongoDB connection error:', err));
+connectDB();
 
 // Routes
 app.use('/api/menu', menuRoutes);
