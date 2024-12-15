@@ -1,60 +1,76 @@
 import mongoose from 'mongoose';
 
-const itemSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  description: { type: String, required: true },
-  prices: {
-    location1: { type: Number, required: true },
-    location2: { type: Number, required: true }
+const itemSchema = mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: [true, "This field can't be empty"]
+    },
+    description: {
+      type: String,
+      required: [true, "This field can't be empty"],
+    },
+    prices: {
+      location1: { type: Number, required: [true, "This field can't be empty"], },
+      location2: { type: Number, required: [true, "This field can't be empty"], }
+    },
+    image: {
+      type: String
+    },
+    isAvailable: {
+      type: Boolean, default: true
+    }
+  }
+);
+
+const categorySchema = mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: [true, "This field can't be empty"]
+    },
+    subtitle: String,
+    style: {
+      type: String,
+      enum: ['default', 'compact', 'featured'],
+      default: 'default'
+    },
+    image: {
+      url: String,
+      position: { type: String, enum: ['top', 'bottom', 'beside-title'] },
+      alt: String
+    },
+    items: [itemSchema],
+    order: {
+      type: Number,
+      required: [true, "This field can't be empty"]
+    },
+    isActive: {
+      type: Boolean,
+      default: true
+    }
+  }
+);
+
+const locationSchema = mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    isActive: { type: Boolean, default: true },
+  }
+);
+
+const menuSchema = mongoose.Schema(
+  {
+    categories: [categorySchema],
+    locations: [locationSchema],
+    lastUpdated: {
+      type: Date,
+      default: Date.now
+    }
   },
-  image: { type: String },
-  isAvailable: { type: Boolean, default: true }
-});
+  {
+    timestamps: true
+  }
+);
 
-const promotionSchema = new mongoose.Schema({
-  type: { type: String, enum: ['featured-item', 'info-banner'], required: true },
-  title: { type: String, required: true },
-  description: { type: String, required: true },
-  itemId: { type: mongoose.Schema.Types.ObjectId, ref: 'Item' },
-  image: String,
-  backgroundColor: String,
-  icon: String,
-  action: {
-    text: String,
-    link: String
-  },
-  startDate: Date,
-  endDate: Date,
-  isActive: { type: Boolean, default: true }
-});
-
-const categorySchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  subtitle: String,
-  style: { type: String, enum: ['default', 'compact', 'featured'], default: 'default' },
-  image: {
-    url: String,
-    position: { type: String, enum: ['top', 'bottom', 'beside-title'] },
-    alt: String
-  },
-  promotion: promotionSchema,
-  items: [itemSchema],
-  order: { type: Number, required: true },
-  isActive: { type: Boolean, default: true }
-});
-
-const locationSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  isActive: { type: Boolean, default: true },
-  qrCode: String,
-  address: String,
-  defaultLocation: { type: Boolean, default: false }
-});
-
-const menuSchema = new mongoose.Schema({
-  categories: [categorySchema],
-  locations: [locationSchema],
-  lastUpdated: { type: Date, default: Date.now }
-});
-
-export default mongoose.model('menus', menuSchema);
+export default mongoose.model.menus || mongoose.model('menus', menuSchema);
