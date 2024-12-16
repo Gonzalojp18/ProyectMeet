@@ -3,14 +3,9 @@ import mongoose from 'mongoose';
 const itemSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "This field can't be empty"],
     trim: true
   },
-  description: {
-    type: String,
-    required: [true, "This field can't be empty"],
-    trim: true
-  },
+  description: String,
   prices: {
     location1: {
       type: Number,

@@ -1,9 +1,13 @@
 import Menu from "../models/menuSchema/menuSchema.js";
 import asyncHandler from 'express-async-handler';
 
+// @desc Get Menu
+// @route GET /api/menu/:locationID
+// @access Public
 export const getMenu = asyncHandler(async (req, res, next) => {
-  const menu = await Menu.findOne();
-  const location = menu.locations.find(loc => loc.id === req.params.locationId);
+  const menu = await Menu.findOne().lean();
+
+  const location = menu.locations.find(loc => loc.nameId === req.params.locationId);
 
   if (!location) {
     const err = new Error('Location not found');
@@ -11,35 +15,43 @@ export const getMenu = asyncHandler(async (req, res, next) => {
     return next(err);
   }
 
-  const filteredMenu = {
-    ...menu.toObject(),
-    locations: [location],
-    categories: menu.categories.map(category => ({
-      ...category,
-      items: category.items
-        .filter(item => item.prices?.[req.params.locationId] !== undefined)
-        .map(item => ({
-          ...item,
-          prices: { [req.params.locationId]: item.prices[req.params.locationId] }
-        }))
-    })).filter(category => category.items.length > 0)
+  const filterItemsByLocation = (category, locationId) => {
+    return category.items
+      .filter(item => item.prices[locationId] !== undefined)
+      .map(item => ({
+        ...item,
+        prices: item.prices[locationId]
+      }));
   };
 
-  res.json(filteredMenu);
+  const filteredMenu = {
+    categories: menu.categories.map(category => ({
+      ...category,
+      items: filterItemsByLocation(category, req.params.locationId)
+    })),
+    locations: location
+  };
+
+  res.status(200).json(filteredMenu);
 })
 
+// @desc Get Menu to Admin
+// @route GET /api/menu/admin
+// @access Private
+export const getAdminMenu = asyncHandler(async (req, res) => {
+  res.status(200).json(req.menu)
+})
+
+
+// @desc Create Menu
+// @route POST /api/menu/
+// @access Private
 export const createMenu = asyncHandler(async (req, res, next) => {
-  const { name, description, prices } = await req.json();
+  const createItem = await Menu.create(await req.body)
 
-  if (!name || !description || !prices) {
-    const err = new Error('Be sure to fill out every field');
-    err.status = 300;
-    return next(err);
+  if (createItem) {
+    res.status(200).json(createItem);
+  } else {
+    res.status(500).json({ message: "Something went wrong while trying to create the Menu" });
   }
-
-  const createItem = await Menu.create({
-    name,
-    description,
-    prices
-  })
 })

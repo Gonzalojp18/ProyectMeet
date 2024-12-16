@@ -1,22 +1,16 @@
 import express from 'express';
 import Menu from '../models/menuSchema/menuSchema.js';
 import asyncHandler from 'express-async-handler';
-import { getMenu, createMenu } from '../controllers/menuController.js';
+import { getMenu, createMenu, getAdminMenu } from '../controllers/menuController.js';
+import protect from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-// Get menu for specific location
 router.get('/:locationId', getMenu);
-
-// Get full menu for admin
-router.get('/admin/full', asyncHandler(async (req, res) => {
-  const menu = await Menu.findOne();
-  res.json(menu);
-}));
+router.get('/admin', protect, getAdminMenu);
+router.post('/', protect, createMenu)
 
 router.post('/create', createMenu)
-
-// Update item availability for specific location
 router.patch('/admin/items/:itemId/locations/:locationId', asyncHandler(async (req, res) => {
   const { itemId, locationId } = req.params;
   const { price, isAvailable } = req.body;

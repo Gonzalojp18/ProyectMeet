@@ -26,11 +26,6 @@ const categorySchema = mongoose.Schema(
       alt: { type: String, trim: true }
     },
     items: [itemSchema],
-    order: {
-      type: Number,
-      required: [true, "This field can't be empty"],
-      min: 0
-    },
     isActive: {
       type: Boolean,
       default: true
@@ -38,4 +33,4 @@ const categorySchema = mongoose.Schema(
   }
 );
 
-export default mongoose.model('Category', categorySchema);
+export default categorySchema;

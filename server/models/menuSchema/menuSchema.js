@@ -1,23 +1,11 @@
 import mongoose from 'mongoose';
+import locationSchema from './locationSchema.js';
+import categorySchema from './categorySchema.js'
 
 const menuSchema = mongoose.Schema(
   {
-    categories: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category'
-      }
-    ],
-    locations: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Location'
-      }
-    ],
-    lastUpdated: {
-      type: Date,
-      default: Date.now
-    }
+    categories: [categorySchema],
+    locations: [locationSchema],
   },
   {
   timestamps: true

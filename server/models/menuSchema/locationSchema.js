@@ -6,10 +6,15 @@ const locationSchema = mongoose.Schema({
     required: true,
     trim: true
   },
+  nameId: {
+    type: String,
+    required: true,
+    trim: true
+  },
   isActive: {
     type: Boolean,
     default: true
   }
 });
 
-export default mongoose.model('Location', locationSchema);
+export default locationSchema;
