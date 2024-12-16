@@ -36,12 +36,11 @@ export const getMenu = asyncHandler(async (req, res, next) => {
 })
 
 // @desc Get Menu to Admin
-// @route GET /api/menu/admin
+// @route GET /api/menu
 // @access Private
 export const getAdminMenu = asyncHandler(async (req, res) => {
   res.status(200).json(req.menu)
 })
-
 
 // @desc Create Menu
 // @route POST /api/menu/
@@ -54,4 +53,46 @@ export const createMenu = asyncHandler(async (req, res, next) => {
   } else {
     res.status(500).json({ message: "Something went wrong while trying to create the Menu" });
   }
+})
+
+// @desc Add Category
+// @route POST /api/menu/category/:categoryId
+// @access Private
+export const addCategory = asyncHandler(async (req, res, next) => {
+
+})
+
+// @desc Add Item
+// @route POST /api/menu/category/:categoryId/item/itemId
+// @access Private
+export const addItem = asyncHandler(async (req, res, next) => {
+
+})
+
+// @desc Update Items Menu
+// @route PATCH /api/menu/items/itemId/locations/locationId
+// @access Private
+export const updateItemsMenu = asyncHandler(async (req, res, next) => {
+  const { itemId, locationId } = req.params;
+  const { price, isAvailable } = req.body;
+
+  const menu = await Menu.findOne();
+  let itemUpdated = false;
+
+  if (isAvailable) {
+    menu.categories.forEach((category) => {
+      category.items.filter((item) => item.id === itemId)
+        .map((item) => item.prices[locationId] = price)
+      itemUpdated = true;
+    })
+  } else {
+    throw new Error('Item Removed')
+  }
+
+  if (!itemUpdated) {
+    throw new Error('Item not found');
+  }
+
+  await menu.save();
+  res.json({ message: 'Item updated successfully' });
 })
