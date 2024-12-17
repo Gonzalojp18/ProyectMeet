@@ -49,28 +49,44 @@ export const createMenu = asyncHandler(async (req, res, next) => {
   const createItem = await Menu.create(await req.body)
 
   if (createItem) {
-    res.status(200).json(createItem);
+    res.status(201).json(createItem);
   } else {
     res.status(500).json({ message: "Something went wrong while trying to create the Menu" });
   }
 })
 
-// @desc Add Category
-// @route POST /api/menu/category/:categoryId
-// @access Private
-export const addCategory = asyncHandler(async (req, res, next) => {
-
-})
-
 // @desc Add Item
-// @route POST /api/menu/category/:categoryId/item/itemId
+// @route POST /api/menu/category/:categoryId/item
 // @access Private
 export const addItem = asyncHandler(async (req, res, next) => {
+  const { categoryId } = req.params;
+  const newItem = req.body;
 
+  const menu = await Menu.findOne();
+
+  if (!menu) {
+    const err = new Error('Menu not found');
+    err.status = 404;
+    return next(err);
+  }
+
+  const category = menu.categories.id(categoryId);
+
+  if (!category) {
+    const err = new Error('Category not found');
+    err.status = 404;
+    return next(err);
+  }
+
+  category.items.push(newItem);
+
+  await menu.save();
+
+  res.status(201).json({ data: newItem  });
 })
 
 // @desc Update Items Menu
-// @route PATCH /api/menu/items/itemId/locations/locationId
+// @route PATCH /api/menu/items/:itemId/locations/locationId
 // @access Private
 export const updateItemsMenu = asyncHandler(async (req, res, next) => {
   const { itemId, locationId } = req.params;
@@ -94,5 +110,42 @@ export const updateItemsMenu = asyncHandler(async (req, res, next) => {
   }
 
   await menu.save();
-  res.json({ message: 'Item updated successfully' });
+  res.status(200).json({ message: 'Item updated successfully' });
 })
+
+// @desc Remove Item from Menu
+// @route DELETE /api/menu/category/:categoryId/item/:itemId
+// @access Private
+export const deleteItem = asyncHandler(async (req, res, next) => {
+  const { categoryId, itemId } = req.params;
+
+  const menu = await Menu.findOne();
+
+  if (!menu) {
+    const err = new Error('Menu not found');
+    err.status = 404;
+    return next(err);
+  }
+
+  const category = menu.categories.id(categoryId);
+
+  if (!category) {
+    const err = new Error('Category not found');
+    err.status = 404;
+    return next(err);
+  }
+
+  const itemIndex = category.items.findIndex(item => item.id === itemId);
+
+  if (itemIndex === -1) {
+    const err = new Error('Item not found');
+    err.status = 404;
+    return next(err);
+  }
+
+  category.items.splice(itemIndex, 1);
+
+  await menu.save();
+
+  res.status(200).json({ msg: `Item with the id ${itemId} was successfully deleted` });
+});

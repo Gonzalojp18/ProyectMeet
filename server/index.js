@@ -9,28 +9,22 @@ import colors from 'colors';
 
 dotenv.config();
 
-// Const PORT
 const PORT = process.env.PORT || 4000;
 
 const app = express();
 
 app.use(cors());
 
-// Handling Data
-app.use(express.json()); // Get json data
-app.use(express.urlencoded({ extended: true })); // Get form data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Connect to MongoDB
 connectDB();
 
-// Routes
 app.use('/api/menu', menuRoutes);
 app.use('/api/auth', authRoutes);
 
-// Error handling
 app.use(errorHandler);
 
-// App listening
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`.cyan);
 });
