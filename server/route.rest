@@ -1,0 +1,41 @@
+# Auth API
+
+GET http://localhost:3000/api/auth
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6IjY3NWRlYjU1Y2I1MDMwMTk1ODEyODMyOCIsInJvbGUiOiJtYW5hZ2VyIn0sImlhdCI6MTczNDM5NDcyMiwiZXhwIjoxNzM0NDgxMTIyfQ.Zz9FDnmPLxyAxuMpdNAd95FIgVvJsbKXDD_p5f85DDg"
+
+
+###
+
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Adrian",
+  "email": "cova@gmail.com",
+  "password": "123asd"
+}
+
+###
+
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "cova@gmail.com",
+  "password": "123asd"
+}
+
+###
+
+PUT http://localhost:3000/api/auth/675deb55cb50301958128328
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6IjY3NWRlYjU1Y2I1MDMwMTk1ODEyODMyOCIsInJvbGUiOiJtYW5hZ2VyIn0sImlhdCI6MTczNDIwODc2OCwiZXhwIjoxNzM0Mjk1MTY4fQ.kFpkz7YbMD-8UnLE0R8fxOy7T-ol3z6heXMbb1FYgLU
+
+{
+  "name": "Adrian Felipe Covarrubias Merlo"
+}
+
+###
+
+# Menu API

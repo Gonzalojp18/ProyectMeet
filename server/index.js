@@ -1,43 +1,30 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import mongoose from 'mongoose';
-import menuRoutes from './routes/menu.js';
-import authRoutes from './routes/auth.js';
+import menuRoutes from './routes/menuRoute.js';
+import authRoutes from './routes/authRoute.js';
 import { errorHandler } from './middleware/errorHandler.js';
-import { AppError } from './utils/AppError.js';
+import connectDB from './database/db.js';
+import colors from 'colors';
 
-dotenv.config({ path: './.env' }); // Asegúrate de cargar el archivo .env
-console.log('MONGODB_URI:', process.env.MONGODB_URI);
-console.log('PORT:', process.env.PORT);
+dotenv.config();
+
+const PORT = process.env.PORT || 4000;
 
 const app = express();
 
 app.use(cors());
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Connect to MongoDB
-mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb://root:sanguinario@localhost:27017/resto', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.error('MongoDB connection error:', err));
+connectDB();
 
-// Routes
 app.use('/api/menu', menuRoutes);
 app.use('/api/auth', authRoutes);
 
-// Handle 404 routes
-app.all('*', (req, res, next) => {
-  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
-});
-
-// Error handling
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`.cyan);
 });
