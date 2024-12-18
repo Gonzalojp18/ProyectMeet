@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import useMenuStore from '../../store/menuStore';
-import meetingLogo from '../../assets/miselaneous/meetinglogo.png'
+import meetingLogo from '../../assets/miselaneous/meetinglogo.png';
 
 const CategoryNav = () => {
   const { menu } = useMenuStore();
@@ -16,7 +16,7 @@ const CategoryNav = () => {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
     setActiveCategory(categoryId);
@@ -25,12 +25,12 @@ const CategoryNav = () => {
   // Detectar la categoría activa al hacer scroll
   useEffect(() => {
     const handleScroll = () => {
-      const categories = menu.categories.map(cat => ({
+      const categories = menu.categories.map((cat) => ({
         id: cat.id,
-        element: document.getElementById(`category-${cat.id}`)
+        element: document.getElementById(`category-${cat.id}`),
       }));
 
-      const activeCategory = categories.find(cat => {
+      const activeCategory = categories.find((cat) => {
         if (!cat.element) return false;
         const rect = cat.element.getBoundingClientRect();
         return rect.top <= 100 && rect.bottom >= 100;
@@ -38,13 +38,12 @@ const CategoryNav = () => {
 
       if (activeCategory) {
         setActiveCategory(activeCategory.id);
-        
         // Scroll el botón activo a la vista
         const activeButton = document.getElementById(`cat-button-${activeCategory.id}`);
         if (activeButton && scrollContainerRef.current) {
           scrollContainerRef.current.scrollTo({
             left: activeButton.offsetLeft - scrollContainerRef.current.offsetWidth / 2 + activeButton.offsetWidth / 2,
-            behavior: 'smooth'
+            behavior: 'smooth',
           });
         }
       }
@@ -56,21 +55,17 @@ const CategoryNav = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-gray-900 backdrop-blur-md shadow-sm z-50 flex items-center p-2">
-                  <a href="/"
-            >
-            <img
-                src={meetingLogo}
-                alt="Logo"
-                id='logo'/>
-            </a>
-      <div className="max-w-6xl mx-auto px-4">
+      <a href="/">
+        <img src={meetingLogo} alt="Logo" id="logo" />
+      </a>
+      <div className="max-w-6xl mx-auto px-4 w-full">
         <div
           ref={scrollContainerRef}
-          className="overflow-x-auto scrollbar-hide"
+          className="overflow-x-auto whitespace-nowrap scrollbar-hide"
           style={{
             msOverflowStyle: 'none',
             scrollbarWidth: 'none',
-            WebkitOverflowScrolling: 'touch'
+            WebkitOverflowScrolling: 'touch',
           }}
         >
           <div className="flex space-x-2 py-3 px-2">
