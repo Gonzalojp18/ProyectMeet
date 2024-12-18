@@ -11,7 +11,6 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError('');
-    
     const success = login(credentials.username, credentials.password);
     if (success) {
       navigate('/admin');

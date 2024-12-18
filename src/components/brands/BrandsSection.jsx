@@ -11,27 +11,27 @@ const BrandsSection = () => {
     {
       id: 2,
       name: '7UP',
-      imageUrl: '/public/brands/7up.webp'
+      imageUrl: '../assets/marcas/7up.webp'
     },
     {
       id: 3,
       name: 'Gatorade',
-      imageUrl: '/public/brands/gatorade.webp'
+      imageUrl: '../assets/marcas/gatorade.webp'
     },
     {
       id: 4,
       name: 'Paso de los Toros',
-      imageUrl: '/public/brands/toros.webp'
+      imageUrl: '../assets/marcas/toros.webp'
     },
     {
       id: 5,
       name: 'Stella Artois',
-      imageUrl: '/public/brands/stella.webp'
+      imageUrl: '../assets/marcas/stella.webp'
     },
     {
       id: 6,
       name: 'Corona',
-      imageUrl: '/public/brands/corona.webp'
+      imageUrl: '../assets/marcas/corona.webp'
     },
   ];
 
