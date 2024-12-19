@@ -4,11 +4,12 @@ import MenuDisplay from './components/MenuDisplay';
 import AdminPanel from './components/AdminPanel';
 import Login from './components/Login';
 import Register from './components/Register'; // Importa tu componente Register
+import { getValue } from './utils/authLocalStorage'
 
 function Layout({ children }) {
   let isAuthenticated = false;
 
-  if (localStorage.getItem('auth')) {
+  if (getValue()) {
     isAuthenticated = true;
   }
 
@@ -64,7 +65,7 @@ function Layout({ children }) {
 
 const ProtectedRoute = ({ element }) => {
 
-  if (localStorage.getItem('auth')) {
+  if (getValue()) {
     return element;
   }
 
