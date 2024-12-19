@@ -4,10 +4,13 @@ import MenuDisplay from './components/MenuDisplay';
 import AdminPanel from './components/AdminPanel';
 import Login from './components/Login';
 import Register from './components/Register'; // Importa tu componente Register
-import useAuthStore from './store/authStore';
 
 function Layout({ children }) {
-  const { isAuthenticated, logout } = useAuthStore();
+  let isAuthenticated = false;
+
+  if (localStorage.getItem('auth')) {
+    isAuthenticated = true;
+  }
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -27,7 +30,7 @@ function Layout({ children }) {
             <div className="flex items-center">
               {isAuthenticated ? (
                 <button
-                  onClick={logout}
+                  onClick={() => localStorage.removeItem('auth')}
                   className="px-4 py-2 text-gray-800 hover:text-gray-600 font-medium transition-colors duration-200"
                 >
                   Cerrar Sesión
@@ -60,17 +63,21 @@ function Layout({ children }) {
 }
 
 const ProtectedRoute = ({ element }) => {
-  const { isAuthenticated } = useAuthStore();
-  return isAuthenticated ? element : <Navigate to="/login" />;
+
+  if (localStorage.getItem('auth')) {
+    return element;
+  }
+
+  return <Navigate to="/register" />;
 };
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/menu',
     element: <Layout><MenuDisplay /></Layout>,
   },
   {
-    path: '/admin',
+    path: '/',
     element: <Layout><ProtectedRoute element={<AdminPanel />} /></Layout>,
   },
   {
