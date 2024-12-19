@@ -12,7 +12,7 @@ const CategoryItems = ({
   const [isAddingItem, setIsAddingItem] = useState(false);
 
   const handleAddItem = (itemData) => {
-    onAddItem(category.id, itemData);
+    onAddItem(category._id, itemData);
     setIsAddingItem(false);
   };
 

@@ -7,8 +7,6 @@ const ItemForm = ({ item, locations, onSubmit, onCancel }) => {
     locations: {}
   });
 
-  console.log(formData);
-
   useEffect(() => {
     if (item) {
       setFormData({
@@ -43,12 +41,9 @@ const ItemForm = ({ item, locations, onSubmit, onCancel }) => {
     const processedData = {
       name: formData.name,
       description: formData.description,
-      locations: Object.entries(formData.locations).reduce((acc, [locationId, data]) => ({
+      prices: Object.entries(formData.locations).reduce((acc, [locationId, data]) => ({
         ...acc,
-        [locationId]: {
-          enabled: data.enabled,
-          price: data.enabled ? data.price : ''
-        }
+        [locationId]: data.price
       }), {})
     };
 

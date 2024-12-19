@@ -5,6 +5,8 @@ import PromotionManager from './PromotionManager';
 import { LocationNav } from './navigation';
 import { useFetch } from '../hooks/useFetch';
 import { getToken } from '../utils/authLocalStorage';
+import axios from 'axios';
+import { handleAxiosError } from '../utils/handleAxiosError';
 
 const AdminPanel = () => {
   const { addProduct, updateProduct, deleteProduct } = useMenuStore();
@@ -20,7 +22,12 @@ const AdminPanel = () => {
     return <div>Access denied. Please log in.</div>;
   }
 
-  const handleAddItem = (categoryId, itemData) => {
+  const handleAddItem = async (categoryId, itemData) => {
+    try {
+      await axios.post(`http://localhost:3000/api/menu/category/${categoryId}/item`, itemData, getToken())
+    } catch (error) {
+      handleAxiosError(error)
+    }
     addProduct(categoryId, itemData);
   };
 
