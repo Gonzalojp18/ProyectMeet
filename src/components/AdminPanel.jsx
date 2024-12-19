@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import useMenuStore from '../store/menuStore';
-import useAuthStore from '../store/authStore';
 import CategoryItems from './admin/CategoryItems';
 import PromotionManager from './PromotionManager';
 import { LocationNav } from './navigation';
+import { useFetch } from '../hooks/useFetch';
+import { getToken } from '../utils/authLocalStorage';
 
 const AdminPanel = () => {
-  const { menu, selectedLocation, addProduct, updateProduct, deleteProduct } = useMenuStore();
-  const { isAuthenticated } = useAuthStore();
+  const { addProduct, updateProduct, deleteProduct } = useMenuStore();
   const [activeTab, setActiveTab] = useState('products');
 
-  if (!isAuthenticated) {
+  const { data, loading, error } = useFetch('http://localhost:3000/api/menu', getToken())
+
+  if (loading) {
+    return <div>Cargando Administrador...</div>
+  }
+
+  if (error) {
     return <div>Access denied. Please log in.</div>;
   }
 
@@ -67,12 +73,11 @@ const AdminPanel = () => {
 
       {activeTab === 'products' ? (
         <div className="space-y-8">
-          {menu.categories.map(category => (
-            <div key={category.id} className="bg-white shadow sm:rounded-lg p-6">
+          {data.categories.map(category => (
+            <div key={category._id} className="bg-white shadow sm:rounded-lg p-6">
               <CategoryItems
                 category={category}
-                locations={menu.locations}
-                selectedLocation={selectedLocation}
+                locations={data.locations}
                 onAddItem={handleAddItem}
                 onUpdateItem={handleUpdateItem}
                 onDeleteItem={handleDeleteItem}
@@ -82,8 +87,8 @@ const AdminPanel = () => {
         </div>
       ) : (
         <div className="space-y-8">
-          {menu.categories.map(category => (
-            <div key={category.id} className="bg-white shadow sm:rounded-lg p-6">
+          {data.categories.map(category => (
+            <div key={category._id} className="bg-white shadow sm:rounded-lg p-6">
               <h3 className="text-lg font-medium leading-6 text-gray-900 mb-4">{category.name}</h3>
               <PromotionManager category={category} />
             </div>

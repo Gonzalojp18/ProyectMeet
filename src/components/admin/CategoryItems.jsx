@@ -4,7 +4,6 @@ import ItemForm from './ItemForm';
 const CategoryItems = ({
   category,
   locations,
-  selectedLocation,
   onAddItem,
   onUpdateItem,
   onDeleteItem
@@ -50,8 +49,8 @@ const CategoryItems = ({
 
       <div className="space-y-4">
         {category.items.map(item => (
-          <div key={item.id} className="bg-white shadow sm:rounded-lg p-4">
-            {editingItem?.id === item.id ? (
+          <div key={item._id} className="bg-white shadow sm:rounded-lg p-4">
+            {editingItem?._id === item._id ? (
               <ItemForm
                 item={item}
                 locations={locations}
@@ -82,11 +81,11 @@ const CategoryItems = ({
                 </div>
                 <div className="mt-4 grid grid-cols-2 gap-4">
                   {locations.map(location => (
-                    <div key={location.id} className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                    <div key={location._id} className="flex items-center justify-between p-2 bg-gray-50 rounded">
                       <span className="text-sm font-medium text-gray-700">{location.name}</span>
-                      {item.prices[location.id] !== undefined ? (
+                      {item.prices[location.nameId] !== undefined ? (
                         <span className="text-sm font-medium text-gray-900">
-                          ${item.prices[location.id].toFixed(2)}
+                          ${item.prices[location.nameId].toFixed(2)}
                         </span>
                       ) : (
                         <span className="text-sm text-gray-500">Producto no disponible</span>
