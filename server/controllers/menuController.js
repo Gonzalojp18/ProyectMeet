@@ -143,11 +143,13 @@ export const deleteItem = asyncHandler(async (req, res, next) => {
 
   const itemIndex = category.items.findIndex(item => item.id === itemId);
 
-  if (itemIndex === -1) {
+  if (!itemIndex) {
     const err = new Error('Item not found');
     err.status = 404;
     return next(err);
   }
+
+  category.items.splice(itemIndex, 1);
 
   await menu.save();
 

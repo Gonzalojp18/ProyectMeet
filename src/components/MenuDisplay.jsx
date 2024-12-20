@@ -8,12 +8,13 @@ import logo from '../../public/assets/miselaneous/logosinbg.webp'
 import WeatherCard from '../components/Weather/WeatherCard';
 import { useFetch } from '../hooks/useFetch';
 import { useParams } from 'react-router-dom';
+import { FullScreenError } from '../components/Error';
+import { useNavigate } from 'react-router-dom';
 
 const MenuDisplay = () => {
   const { locationId } = useParams();
   const apiKey = import.meta.env.VITE_API_KEY;
-
-  console.log(locationId);
+  const navigate = useNavigate();
 
   const { data, loading, error } = useFetch(`http://localhost:3000/api/menu/${locationId}`)
 
@@ -22,7 +23,7 @@ const MenuDisplay = () => {
   }
 
   if (error) {
-    return <Link to='/register' className='bg-white p-6 shadow sm:rounded-lg mt-5'>Please log in</Link>;
+    return <FullScreenError message='404' buttonText='Regresar al inicio' onButtonClick={() => navigate('/')} />
   }
 
   return (
@@ -35,7 +36,7 @@ const MenuDisplay = () => {
             </div>
           </div>
         </div>
-        <CategoryNav />
+        <CategoryNav categories={data.categories} />
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 main-container-menu">
