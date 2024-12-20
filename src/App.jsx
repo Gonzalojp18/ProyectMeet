@@ -4,7 +4,9 @@ import MenuDisplay from './components/MenuDisplay';
 import AdminPanel from './components/AdminPanel';
 import Login from './components/Login';
 import Register from './components/Register'; // Importa tu componente Register
-import { getValue } from './utils/authLocalStorage'
+import { getToken, getValue } from './utils/authLocalStorage'
+import { FullScreenError } from './components/Error';
+import { Link } from 'react-router-dom';
 
 function Layout({ children }) {
   let isAuthenticated = false;
@@ -22,11 +24,6 @@ function Layout({ children }) {
               <a href="/" className="text-gray-800 hover:text-gray-600 font-medium">
                 Menú
               </a>
-              {isAuthenticated && (
-                <a href="/admin" className="text-gray-800 hover:text-gray-600 font-medium">
-                  Admin
-                </a>
-              )}
             </div>
             <div className="flex items-center">
               {isAuthenticated ? (
@@ -74,7 +71,7 @@ const ProtectedRoute = ({ element }) => {
 
 const router = createBrowserRouter([
   {
-    path: '/:locationId',
+    path: '/menu/:locationId',
     element: <Layout><MenuDisplay /></Layout>,
   },
   {
@@ -86,9 +83,13 @@ const router = createBrowserRouter([
     element: <Layout><Login /></Layout>,
   },
   {
-    path: '/register', // Nueva ruta para registro
+    path: '/register',
     element: <Layout><Register /></Layout>,
   },
+  {
+    path: '*',
+    element: <FullScreenError message='404' buttonText='Regresa a inicio' />,
+  }
 ]);
 
 function App() {

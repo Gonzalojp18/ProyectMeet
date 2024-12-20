@@ -23,7 +23,7 @@ const LocationNav = ({ adminView = false, locations }) => {
 
     setIsOpen(false);
 
-    navigate(`${locationId}`);
+    navigate(`/menu/${locationId}`);
   };
 
   const selectedLocation = locations?.find((loc) => loc.nameId === location)?.name
