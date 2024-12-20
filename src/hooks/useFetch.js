@@ -6,7 +6,6 @@ export const useFetch = (url, options = {}) => {
   const [error, setError] = useState(null)
 
   const fetchData = useCallback(async () => {
-    setLoading(true)
       try {
         const response = await fetch(url, options);
 
@@ -24,7 +23,6 @@ export const useFetch = (url, options = {}) => {
         setLoading(false)
       }
   }, [url])
-
 
   useEffect(() => {
     fetchData()

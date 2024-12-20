@@ -15,7 +15,7 @@ const AdminPanel = () => {
   const { data, loading, error, refetch } = useFetch('http://localhost:3000/api/menu', getToken())
 
   if (loading) {
-    return <div>Cargando Administrador...</div>
+    return <div>Loading...</div>
   }
 
   if (error) {
@@ -25,6 +25,7 @@ const AdminPanel = () => {
   const handleAddItem = async (categoryId, itemData) => {
     try {
       await axios.post(`http://localhost:3000/api/menu/category/${categoryId}/item`, itemData, getToken())
+      refetch()
     } catch (error) {
       handleAxiosError(error)
     }
@@ -37,6 +38,7 @@ const AdminPanel = () => {
   const handleDeleteItem = async (categoryId, itemId) => {
     try {
       await axios.delete(`http://localhost:3000/api/menu/category/${categoryId}/item/${itemId}`, getToken())
+      refetch()
     } catch {
       handleAxiosError(error)
     }
@@ -65,7 +67,7 @@ const AdminPanel = () => {
                   : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
               }`}
             >
-              Productos
+              {loading ? 'Loading...' : 'Productos'}
             </button>
             <button
               onClick={() => setActiveTab('promotions')}
