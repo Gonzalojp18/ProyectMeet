@@ -12,7 +12,7 @@ const AdminPanel = () => {
   const { updateProduct } = useMenuStore();
   const [activeTab, setActiveTab] = useState('products');
 
-  const { data, loading, error } = useFetch('http://localhost:3000/api/menu', getToken())
+  const { data, loading, error, refetch } = useFetch('http://localhost:3000/api/menu', getToken())
 
   if (loading) {
     return <div>Cargando Administrador...</div>
