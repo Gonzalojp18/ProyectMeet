@@ -22,7 +22,7 @@ const CategoryItems = ({
   };
 
   const handleDeleteItem = (itemId) => {
-    onDeleteItem(category.id, itemId);
+    onDeleteItem(category._id, itemId);
   };
 
   return (
@@ -72,7 +72,7 @@ const CategoryItems = ({
                       Editar
                     </button>
                     <button
-                      onClick={() => handleDeleteItem(item.id)}
+                      onClick={() => handleDeleteItem(item._id)}
                       className="inline-flex items-center px-3 py-1.5 border border-transparent rounded-md text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                     >
                       Eliminar

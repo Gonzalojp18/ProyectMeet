@@ -9,7 +9,7 @@ import axios from 'axios';
 import { handleAxiosError } from '../utils/handleAxiosError';
 
 const AdminPanel = () => {
-  const { addProduct, updateProduct, deleteProduct } = useMenuStore();
+  const { updateProduct } = useMenuStore();
   const [activeTab, setActiveTab] = useState('products');
 
   const { data, loading, error } = useFetch('http://localhost:3000/api/menu', getToken())
@@ -28,15 +28,18 @@ const AdminPanel = () => {
     } catch (error) {
       handleAxiosError(error)
     }
-    addProduct(categoryId, itemData);
   };
 
   const handleUpdateItem = (categoryId, itemId, itemData) => {
     updateProduct(categoryId, itemId, itemData);
   };
 
-  const handleDeleteItem = (categoryId, itemId) => {
-    deleteProduct(categoryId, itemId);
+  const handleDeleteItem = async (categoryId, itemId) => {
+    try {
+      await axios.delete(`http://localhost:3000/api/menu/category/${categoryId}/item/${itemId}`, getToken())
+    } catch {
+      handleAxiosError(error)
+    }
   };
 
   return (
