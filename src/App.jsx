@@ -74,7 +74,7 @@ const ProtectedRoute = ({ element }) => {
 
 const router = createBrowserRouter([
   {
-    path: '/menu',
+    path: '/:locationId',
     element: <Layout><MenuDisplay /></Layout>,
   },
   {
