@@ -75,7 +75,9 @@ export const loginUser = asyncHandler(async (req, res, next) => {
     const token = generateJWT({ userId: user.id, role: user.role })
     res.status(200).json({ token });
   } else {
-    res.status(401).json({msg: "User Not Authorized"})
+    const err = new Error('User not Authorized');
+    err.status = 401;
+    return next(err);
   }
 })
 

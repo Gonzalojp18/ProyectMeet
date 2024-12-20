@@ -8,7 +8,7 @@ router.get('/:locationId', getMenu);
 router.get('/', protect, getAdminMenu);
 router.post('/', protect, createMenu)
 router.post('/category/:categoryId/item', protect, addItem)
-router.patch('/items/:itemId/locations/:locationId', protect, updateItemsMenu);
+router.put('/category/:categoryId/item/:itemId', protect, updateItemsMenu);
 router.delete('/category/:categoryId/item/:itemId', protect, deleteItem)
 
 

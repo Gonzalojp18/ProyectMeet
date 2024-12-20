@@ -86,31 +86,37 @@ export const addItem = asyncHandler(async (req, res, next) => {
 })
 
 // @desc Update Items Menu
-// @route PATCH /api/menu/items/:itemId/locations/locationId
+// @route PUT /api/menu/category/:categoryId/item/:itemId
 // @access Private
 export const updateItemsMenu = asyncHandler(async (req, res, next) => {
-  const { itemId, locationId } = req.params;
-  const { price, isAvailable } = req.body;
-
-  const menu = await Menu.findOne();
+  const { categoryId, itemId } = req.params;
+  const updatedItem = req.body;
   let itemUpdated = false;
 
-  if (isAvailable) {
-    menu.categories.forEach((category) => {
-      category.items.filter((item) => item.id === itemId)
-        .map((item) => item.prices[locationId] = price)
-      itemUpdated = true;
-    })
-  } else {
-    throw new Error('Item Removed')
+  const menu = await Menu.findOne();
+
+  if (!menu) {
+    return res.status(404).json({ msg: "Menu not found" });
   }
 
-  if (!itemUpdated) {
-    throw new Error('Item not found');
+  const category = menu.categories.id(categoryId);
+
+  if (!category) {
+    return res.status(404).json({ msg: "Category not found" });
   }
+
+  const item = category.items.id(itemId);
+
+  if (!item) {
+    return res.status(404).json({ msg: "Item not found" });
+  }
+
+  Object.assign(item, updatedItem);
+  itemUpdated = true;
 
   await menu.save();
-  res.status(200).json({ message: 'Item updated successfully' });
+
+  res.status(200).json({ msg: "Item was successfully updated" });
 })
 
 // @desc Remove Item from Menu
@@ -137,7 +143,7 @@ export const deleteItem = asyncHandler(async (req, res, next) => {
 
   const itemIndex = category.items.findIndex(item => item.id === itemId);
 
-  if (itemIndex === -1) {
+  if (!itemIndex) {
     const err = new Error('Item not found');
     err.status = 404;
     return next(err);

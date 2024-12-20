@@ -4,10 +4,16 @@ import MenuDisplay from './components/MenuDisplay';
 import AdminPanel from './components/AdminPanel';
 import Login from './components/Login';
 import Register from './components/Register'; // Importa tu componente Register
-import useAuthStore from './store/authStore';
+import { getToken, getValue } from './utils/authLocalStorage'
+import { FullScreenError } from './components/Error';
+import { Link } from 'react-router-dom';
 
 function Layout({ children }) {
-  const { isAuthenticated, logout } = useAuthStore();
+  let isAuthenticated = false;
+
+  if (getValue()) {
+    isAuthenticated = true;
+  }
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -18,16 +24,11 @@ function Layout({ children }) {
               <a href="/" className="text-gray-800 hover:text-gray-600 font-medium">
                 Menú
               </a>
-              {isAuthenticated && (
-                <a href="/admin" className="text-gray-800 hover:text-gray-600 font-medium">
-                  Admin
-                </a>
-              )}
             </div>
             <div className="flex items-center">
               {isAuthenticated ? (
                 <button
-                  onClick={logout}
+                  onClick={() => localStorage.removeItem('auth')}
                   className="px-4 py-2 text-gray-800 hover:text-gray-600 font-medium transition-colors duration-200"
                 >
                   Cerrar Sesión
@@ -60,17 +61,21 @@ function Layout({ children }) {
 }
 
 const ProtectedRoute = ({ element }) => {
-  const { isAuthenticated } = useAuthStore();
-  return isAuthenticated ? element : <Navigate to="/login" />;
+
+  if (getValue()) {
+    return element;
+  }
+
+  return <Navigate to="/register" />;
 };
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/menu/:locationId',
     element: <Layout><MenuDisplay /></Layout>,
   },
   {
-    path: '/admin',
+    path: '/',
     element: <Layout><ProtectedRoute element={<AdminPanel />} /></Layout>,
   },
   {
@@ -78,9 +83,13 @@ const router = createBrowserRouter([
     element: <Layout><Login /></Layout>,
   },
   {
-    path: '/register', // Nueva ruta para registro
+    path: '/register',
     element: <Layout><Register /></Layout>,
   },
+  {
+    path: '*',
+    element: <FullScreenError message='404' buttonText='Regresa a inicio' />,
+  }
 ]);
 
 function App() {
