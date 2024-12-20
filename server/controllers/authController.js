@@ -7,7 +7,7 @@ import bcrypt from 'bcrypt'
 // @route GET /api/auth
 // @access Private
 export const getUser = asyncHandler(async (req, res) => {
-   res.status(200).json(req.user)
+    res.status(200).json(req.user)
 })
 
 // @desc Sign Up User
@@ -15,6 +15,8 @@ export const getUser = asyncHandler(async (req, res) => {
 // @access Public
 export const registerUser = asyncHandler(async (req, res, next) => {
   const { name, email, password, role } = await req.body;
+
+  console.log(name, email, password);
 
   if (!name || !email || !password) {
     const err = new Error('You should fill in all the fields');
@@ -60,6 +62,7 @@ export const registerUser = asyncHandler(async (req, res, next) => {
 export const loginUser = asyncHandler(async (req, res, next) => {
   const { email, password } = await req.body;
 
+  // Valido que los campos esten completos
   if (!email || !password) {
     const err = new Error('You should fill in all the fields');
     err.status = 400;
@@ -75,6 +78,7 @@ export const loginUser = asyncHandler(async (req, res, next) => {
     res.status(401).json({msg: "User Not Authorized"})
   }
 })
+
 
 // @desc Update User
 // @route PUT /api/auth/:id
