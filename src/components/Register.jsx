@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
-import useAuthStore from '../store/authStore';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { handleAxiosError } from '../utils/handleAxiosError'
+import { setToken } from '../utils/authLocalStorage';
 
 const Register = () => {
     const [formData, setFormData] = useState({
-        username: '',
+        name: '',
         email: '',
         password: ''
     });
-    const [error, setError] = useState('');
-    const register = useAuthStore((state) => state.register); // Supongamos que tienes esta función en el store
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setError('');
+        setLoading(true)
 
-        // Validaciones básicas
-        if (formData.password !== formData.confirmPassword) {
-            setError('Las contraseñas no coinciden');
-            return;
-        }
-
-        const success = register(formData); // Lógica para registrar usuario
-        if (success) {
-            navigate('/login'); // Redirigir a la página de administrador tras registrarse
-        } else {
-            setError('Error al registrarse. Inténtalo de nuevo.');
+        try {
+            const res = await axios.post('http://localhost:3000/api/auth/register', formData)
+            setToken(res.data.token)
+            navigate('/');
+        } catch (error) {
+            setError(error.response.data.error.message)
+            handleAxiosError(error)
+        } finally {
+            setLoading(false)
         }
     };
 
@@ -52,8 +52,8 @@ const Register = () => {
                                 required
                                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 placeholder="Nombre usuario"
-                                value={formData.fullname}
-                                onChange={(e) => setFormData({ ...formData, fullname: e.target.value })}
+                                value={formData.name}
+                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                             />
                         </div>
                         <div>
@@ -89,7 +89,7 @@ const Register = () => {
                             type="submit"
                             className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
-                            Registrarse
+                            {loading ? 'Cargando...' : 'Registrarse' }
                         </button>
                     </div>
                 </form>

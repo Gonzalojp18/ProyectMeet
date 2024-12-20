@@ -6,14 +6,23 @@ import { CategoryNav, LocationNav } from './navigation';
 import BrandsSection from './brands/BrandsSection';
 import logo from '../../public/assets/miselaneous/logosinbg.webp'
 import WeatherCard from '../components/Weather/WeatherCard';
-
+import { useFetch } from '../hooks/useFetch';
+import { useParams } from 'react-router-dom';
 
 const MenuDisplay = () => {
-  const { menu, selectedLocation } = useMenuStore();
+  const { locationId } = useParams();
   const apiKey = import.meta.env.VITE_API_KEY;
 
-  if (!menu || !menu.categories) {
-    return <div className="text-center py-8">Loading menu...</div>;
+  console.log(locationId);
+
+  const { data, loading, error } = useFetch(`http://localhost:3000/api/menu/${locationId}`)
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <Link to='/register' className='bg-white p-6 shadow sm:rounded-lg mt-5'>Please log in</Link>;
   }
 
   return (
@@ -31,24 +40,23 @@ const MenuDisplay = () => {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 main-container-menu">
         <img className='m-auto' src={logo} alt="logo" />
-      <p className="text-center text-xl mb-8 italic text-menu">
+          <p className="text-center text-xl mb-8 italic text-menu">
           Bienvenido a nuestro menú digital. Explore nuestras deliciósas opciónes y disfruta de una experiencia.<br />
           <span>Compartimos el gusto por lo bueno</span><br />
           <span className='text-sm font-bold'>"Comés como en casa, pero sin lavar los platos!"</span>
         </p>
 
-        {menu.categories.map((category) => (
+        {data.categories.map((category) => (
           <CategoryDisplay
-            key={category.id}
+            key={category._id}
             category={category}
-            selectedLocation={selectedLocation}
           />
         ))}
 
         <BrandsSection />
         <div>
                 {/* Weather Card - Only show on menu page */}
-                {window.location.pathname === '/' && (
+                {window.location.pathname === `/${locationId}` && (
           <div className="top-16 z-10 bg-gray-100 main-weather">
             <WeatherCard IdApp={apiKey} />
           </div>

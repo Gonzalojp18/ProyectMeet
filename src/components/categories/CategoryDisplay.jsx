@@ -9,17 +9,8 @@ const styles = {
 };
 
 
-const Category = ({ category, selectedLocation }) => {
+const Category = ({ category }) => {
     const style = styles[category.style || 'default'];
-
-    // Filter items available for the selected location
-    const availableItems = category.items.filter(item =>
-        item.prices && item.prices[selectedLocation] !== undefined
-    );
-
-    if (availableItems.length === 0) {
-        return null;
-    }
 
     const renderImage = (position) => {
         if (!category.image || category.image.position !== position) return null;
@@ -36,7 +27,7 @@ const Category = ({ category, selectedLocation }) => {
     };
 
     const renderTitle = () => (
-        <div id={`category-${category.id}`} className="flex flex-col items-center scroll-mt-20">
+        <div id={`category-${category._id}`} className="flex flex-col items-center scroll-mt-20">
             <div className="flex items-center">
                 <h2 className={style.title}>{category.name}</h2>
                 {renderImage('beside-title')}
@@ -52,14 +43,14 @@ const Category = ({ category, selectedLocation }) => {
             {renderImage('top')}
             {renderTitle()}
             <div className={style.grid}>
-                {availableItems.map((item) => (
-                    <div key={item.id} className={style.item}>
+                {category.items.map((item) => (
+                    <div key={item._id} className={style.item}>
                         <div className='flex flex-col text-left'>
                             <h3 className={style.itemName}>{item.name}</h3>
                             <p className={style.itemDescription}>{item.description}</p>
                         </div>
                         <p className={style.price}>
-                            ${(item.prices[selectedLocation]).toFixed(2)}
+                            ${(item.prices).toFixed(2)}
                         </p>
                     </div>
                 ))}

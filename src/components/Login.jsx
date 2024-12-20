@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
-import useAuthStore from '../store/authStore';
 import { useNavigate } from 'react-router-dom';
+import { setToken } from '../utils/authLocalStorage'
+import axios from 'axios';
 
 const Login = () => {
-  const [credentials, setCredentials] = useState({ username: '', password: '' });
-  const [error, setError] = useState('');
-  const login = useAuthStore(state => state.login);
+  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(null);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-    const success = login(credentials.username, credentials.password);
-    if (success) {
-      navigate('/admin');
-    } else {
-      setError('Invalid credentials');
+    setLoading(true)
+
+    try {
+        const res = await axios.post('http://localhost:3000/api/auth/login', credentials)
+        setToken(res.data.token)
+        navigate('/');
+    } catch (error) {
+        setError(error.response.data.error.message)
+        handleAxiosError(error)
+    } finally {
+        setLoading(false)
     }
   };
 
@@ -33,16 +39,16 @@ const Login = () => {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
-              <label htmlFor="username" className="sr-only">Usuario</label>
+              <label htmlFor="email" className="sr-only">Correo Electronico</label>
               <input
-                id="username"
-                name="username"
-                type="text"
+                id="email"
+                name="email"
+                type="email"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Usuario"
-                value={credentials.username}
-                onChange={(e) => setCredentials({...credentials, username: e.target.value})}
+                placeholder="Correo Electronico"
+                value={credentials.email}
+                onChange={(e) => setCredentials({...credentials, email: e.target.value})}
               />
             </div>
             <div>
@@ -65,7 +71,7 @@ const Login = () => {
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              Iniciar
+              {loading ? 'Cargando...' : 'Enviar'}
             </button>
           </div>
         </form>
