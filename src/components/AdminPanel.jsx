@@ -53,7 +53,7 @@ const AdminPanel = () => {
       <div className="mb-8 bg-white p-6 shadow sm:rounded-lg">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-medium text-gray-900">Configuración de Ubicación</h2>
-          <LocationNav adminView={true} />
+          <LocationNav adminView={true} locations={data.locations} />
         </div>
         <p className="mt-2 text-sm text-gray-500">
           Seleccione la ubicación para administrar los menús y precios específicos.

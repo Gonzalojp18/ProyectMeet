@@ -11,8 +11,9 @@ import { useParams } from 'react-router-dom';
 
 const MenuDisplay = () => {
   const { locationId } = useParams();
-  const { menu } = useMenuStore();
   const apiKey = import.meta.env.VITE_API_KEY;
+
+  console.log(locationId);
 
   const { data, loading, error } = useFetch(`http://localhost:3000/api/menu/${locationId}`)
 
@@ -22,10 +23,6 @@ const MenuDisplay = () => {
 
   if (error) {
     return <Link to='/register' className='bg-white p-6 shadow sm:rounded-lg mt-5'>Please log in</Link>;
-  }
-
-  if (!menu || !menu.categories) {
-    return <div className="text-center py-8">Loading menu...</div>;
   }
 
   return (
@@ -59,7 +56,7 @@ const MenuDisplay = () => {
         <BrandsSection />
         <div>
                 {/* Weather Card - Only show on menu page */}
-                {window.location.pathname === '/' && (
+                {window.location.pathname === `/${locationId}` && (
           <div className="top-16 z-10 bg-gray-100 main-weather">
             <WeatherCard IdApp={apiKey} />
           </div>
