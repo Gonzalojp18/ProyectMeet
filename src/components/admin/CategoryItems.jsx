@@ -17,7 +17,7 @@ const CategoryItems = ({
   };
 
   const handleUpdateItem = (itemData) => {
-    onUpdateItem(category.id, editingItem.id, itemData);
+    onUpdateItem(category._id, editingItem._id, itemData);
     setEditingItem(null);
   };
 

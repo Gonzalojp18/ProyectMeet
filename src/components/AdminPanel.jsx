@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import useMenuStore from '../store/menuStore';
 import CategoryItems from './admin/CategoryItems';
 import PromotionManager from './PromotionManager';
 import { LocationNav } from './navigation';
@@ -7,9 +6,9 @@ import { useFetch } from '../hooks/useFetch';
 import { getToken } from '../utils/authLocalStorage';
 import axios from 'axios';
 import { handleAxiosError } from '../utils/handleAxiosError';
+import { Link } from 'react-router-dom';
 
 const AdminPanel = () => {
-  const { updateProduct } = useMenuStore();
   const [activeTab, setActiveTab] = useState('products');
 
   const { data, loading, error, refetch } = useFetch('http://localhost:3000/api/menu', getToken())
@@ -19,7 +18,7 @@ const AdminPanel = () => {
   }
 
   if (error) {
-    return <div>Access denied. Please log in.</div>;
+    return <Link to='/register' className='bg-white p-6 shadow sm:rounded-lg mt-5'>Please log in</Link>;
   }
 
   const handleAddItem = async (categoryId, itemData) => {
@@ -31,8 +30,13 @@ const AdminPanel = () => {
     }
   };
 
-  const handleUpdateItem = (categoryId, itemId, itemData) => {
-    updateProduct(categoryId, itemId, itemData);
+  const handleUpdateItem = async (categoryId, itemId, itemData) => {
+    try {
+      await axios.put(`http://localhost:3000/api/menu/category/${categoryId}/item/${itemId}`, itemData, getToken())
+      refetch()
+    } catch (error) {
+      handleAxiosError(error)
+    }
   };
 
   const handleDeleteItem = async (categoryId, itemId) => {
