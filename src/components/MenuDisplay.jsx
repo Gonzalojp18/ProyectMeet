@@ -1,11 +1,16 @@
 import React from 'react';
+import { useFetch } from '../hooks/useFetch';
 import useMenuStore from '../store/menuStore';
 import CategoryDisplay from './categories/CategoryDisplay';
 import Footer from '../components/footer/Footer';
 import { CategoryNav, LocationNav } from './navigation';
 import BrandsSection from './brands/BrandsSection';
+import DailyPromotion from '../components/promotions/DailyPromotion'
 import logo from '../../public/assets/miselaneous/logosinbg.webp'
-import WeatherCard from '../components/Weather/WeatherCard';
+import WeatherCard from '../components/Weather/WeatherCard'
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const MenuDisplay = () => {
@@ -41,10 +46,11 @@ const MenuDisplay = () => {
           <p className="text-center text-xl mb-8 italic text-menu">
           Bienvenido a nuestro menú digital. Explore nuestras deliciósas opciónes y disfruta de una experiencia.<br />
           <span>Compartimos el gusto por lo bueno</span><br />
-          <span className='text-sm font-bold'>"Comés como en casa, pero sin lavar los platos!"</span>
+          <span className='text-sm font-bold'>"Comés como en casa, pero sin lavar los platos!"
+          </span>
         </p>
-
-        {menu.categories.map((category) => (
+        <DailyPromotion />
+        {data.categories.map((category) => (
           <CategoryDisplay
             key={category._id}
             category={category}
