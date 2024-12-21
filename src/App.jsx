@@ -4,9 +4,8 @@ import MenuDisplay from './components/MenuDisplay';
 import AdminPanel from './components/AdminPanel';
 import Login from './components/Login';
 import Register from './components/Register'; // Importa tu componente Register
-import { getToken, getValue } from './utils/authLocalStorage'
+import { getValue } from './utils/authLocalStorage'
 import { FullScreenError } from './components/Error';
-import { Link } from 'react-router-dom';
 
 function Layout({ children }) {
   let isAuthenticated = false;
