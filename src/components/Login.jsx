@@ -4,6 +4,8 @@ import { setToken } from '../utils/authLocalStorage'
 import axios from 'axios';
 
 const Login = () => {
+  const API_URI = 'https://server-omega-drab-64.vercel.app'
+
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
@@ -14,7 +16,7 @@ const Login = () => {
     setLoading(true)
 
     try {
-        const res = await axios.post('http://localhost:3000/api/auth/login', credentials)
+        const res = await axios.post(`${API_URI}/api/auth/login`, credentials)
         setToken(res.data.token)
         navigate('/');
     } catch (error) {

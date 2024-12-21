@@ -5,6 +5,8 @@ import { handleAxiosError } from '../utils/handleAxiosError'
 import { setToken } from '../utils/authLocalStorage';
 
 const Register = () => {
+    const API_URI = 'https://server-omega-drab-64.vercel.app'
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -19,7 +21,7 @@ const Register = () => {
         setLoading(true)
 
         try {
-            const res = await axios.post('http://localhost:3000/api/auth/register', formData)
+            const res = await axios.post(`${API_URI}/api/auth/register`, formData)
             setToken(res.data.token)
             navigate('/');
         } catch (error) {

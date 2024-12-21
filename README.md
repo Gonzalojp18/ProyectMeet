@@ -1,8 +1,5 @@
-# React + Vite
+# Domain to run applications
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### FrontEnd  [https://proyect-meet-front-end.vercel.app/ ](https://proyect-meet-front-end.vercel.app)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Backend  [https://proyect-meet-front-end.vercel.app/](https://server-omega-drab-64.vercel.app)

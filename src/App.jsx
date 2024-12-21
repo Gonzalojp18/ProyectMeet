@@ -4,9 +4,10 @@ import MenuDisplay from './components/MenuDisplay';
 import AdminPanel from './components/AdminPanel';
 import Login from './components/Login';
 import Register from './components/Register'; // Importa tu componente Register
-import { getToken, getValue } from './utils/authLocalStorage'
+import { getValue } from './utils/authLocalStorage'
 import { FullScreenError } from './components/Error';
 import { Link } from 'react-router-dom';
+import { deleteLocalStorage } from './utils/authLocalStorage';
 
 function Layout({ children }) {
   let isAuthenticated = false;
@@ -15,38 +16,43 @@ function Layout({ children }) {
     isAuthenticated = true;
   }
 
+  const handleDelete = () => {
+    deleteLocalStorage()
+    window.location.reload()
+  }
+
   return (
     <div className="min-h-screen bg-gray-100">
       <nav className="bg-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between h-16">
             <div className="flex space-x-4 items-center">
-              <a href="/" className="text-gray-800 hover:text-gray-600 font-medium">
+              <Link to="/" className="text-gray-800 hover:text-gray-600 font-medium">
                 Menú
-              </a>
+              </Link>
             </div>
             <div className="flex items-center">
               {isAuthenticated ? (
                 <button
-                  onClick={() => localStorage.removeItem('auth')}
+                  onClick={() => handleDelete()}
                   className="px-4 py-2 text-gray-800 hover:text-gray-600 font-medium transition-colors duration-200"
                 >
                   Cerrar Sesión
                 </button>
               ) : (
                 <>
-                  <a
-                    href="/login"
+                  <Link
+                    to="/login"
                     className="px-4 py-2 text-gray-800 hover:text-gray-600 font-medium transition-colors duration-200"
                   >
                     Iniciar Sesión
-                  </a>
-                  <a
-                    href="/register"
+                  </Link>
+                  <Link
+                    to="/register"
                     className="px-4 py-2 text-gray-800 hover:text-gray-600 font-medium transition-colors duration-200"
                   >
                     Registrarse
-                  </a>
+                  </Link>
                 </>
               )}
             </div>
