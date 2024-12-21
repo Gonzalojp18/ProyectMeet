@@ -29,6 +29,8 @@ const Footer = () => {
           {/* Locations Section */}
           <div className="space-y-8">
             <h3 className="text-lg font-semibold text-gray-900">Nuestras Sedes</h3>
+            <div>
+            </div>
             <div className="space-y-6 text-left">
               {locations.map(location => (
                 <LocationInfo key={location.id} location={location} />

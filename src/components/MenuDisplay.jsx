@@ -5,12 +5,10 @@ import CategoryDisplay from './categories/CategoryDisplay';
 import Footer from '../components/footer/Footer';
 import { CategoryNav, LocationNav } from './navigation';
 import BrandsSection from './brands/BrandsSection';
-import DailyPromotion from '../components/promotions/DailyPromotion'
 import logo from '../../public/assets/miselaneous/logosinbg.webp'
 import WeatherCard from '../components/Weather/WeatherCard'
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
 
 
 const MenuDisplay = () => {
@@ -49,7 +47,6 @@ const MenuDisplay = () => {
           <span className='text-sm font-bold'>"Comés como en casa, pero sin lavar los platos!"
           </span>
         </p>
-        <DailyPromotion />
         {data.categories.map((category) => (
           <CategoryDisplay
             key={category._id}
