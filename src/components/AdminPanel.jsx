@@ -9,9 +9,12 @@ import { handleAxiosError } from '../utils/handleAxiosError';
 import { Link } from 'react-router-dom';
 
 const AdminPanel = () => {
+
+  const API_URI = 'https://server-omega-drab-64.vercel.app'
+
   const [activeTab, setActiveTab] = useState('products');
 
-  const { data, loading, error, refetch } = useFetch('http://localhost:3000/api/menu', getToken())
+  const { data, loading, error, refetch } = useFetch(`${API_URI}/api/menu`, getToken())
 
   if (loading) {
     return <div>Loading...</div>
@@ -23,7 +26,7 @@ const AdminPanel = () => {
 
   const handleAddItem = async (categoryId, itemData) => {
     try {
-      await axios.post(`http://localhost:3000/api/menu/category/${categoryId}/item`, itemData, getToken())
+      await axios.post(`${API_URI}/api/menu/category/${categoryId}/item`, itemData, getToken())
       refetch()
     } catch (error) {
       handleAxiosError(error)
@@ -32,7 +35,7 @@ const AdminPanel = () => {
 
   const handleUpdateItem = async (categoryId, itemId, itemData) => {
     try {
-      await axios.put(`http://localhost:3000/api/menu/category/${categoryId}/item/${itemId}`, itemData, getToken())
+      await axios.put(`${API_URI}/api/menu/category/${categoryId}/item/${itemId}`, itemData, getToken())
       refetch()
     } catch (error) {
       handleAxiosError(error)
@@ -41,7 +44,7 @@ const AdminPanel = () => {
 
   const handleDeleteItem = async (categoryId, itemId) => {
     try {
-      await axios.delete(`http://localhost:3000/api/menu/category/${categoryId}/item/${itemId}`, getToken())
+      await axios.delete(`${API_URI}/api/menu/category/${categoryId}/item/${itemId}`, getToken())
       refetch()
     } catch {
       handleAxiosError(error)

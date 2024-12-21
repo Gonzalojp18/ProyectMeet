@@ -1,10 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import menuRoutes from './routes/menuRoute.js';
-import authRoutes from './routes/authRoute.js';
-import { errorHandler } from './middleware/errorHandler.js';
-import connectDB from './database/db.js';
+import menuRoutes from '../routes/menuRoute.js';
+import authRoutes from '../routes/authRoute.js';
+import { errorHandler } from '../middleware/errorHandler.js';
+import connectDB from '../database/db.js';
 import colors from 'colors';
 
 dotenv.config();
@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:4173'] // Puerto del frontend
+  origin: ['https://proyect-meet-front-end.vercel.app', 'http://localhost:4173'] // Puerto del frontend
 }));
 
 app.use(express.json());
@@ -30,3 +30,5 @@ app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`.cyan);
 });
+
+export default app;
