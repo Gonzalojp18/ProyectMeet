@@ -15,8 +15,8 @@ const app = express();
 
 const corsOptions = {
   origin: 'https://proyect-meet-front-end.vercel.app',
-  credentials: true,
-  optionsSuccessStatus: 200,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
 
 app.use(cors(corsOptions));
