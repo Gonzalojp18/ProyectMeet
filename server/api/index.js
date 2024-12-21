@@ -13,9 +13,13 @@ const PORT = process.env.PORT || 4000;
 
 const app = express();
 
-app.use(cors({
-  origin: ['https://proyect-meet-front-end.vercel.app', 'http://localhost:4173'] // Puerto del frontend
-}));
+const corsOptions = {
+  origin: 'https://proyect-meet-front-end.vercel.app',
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
