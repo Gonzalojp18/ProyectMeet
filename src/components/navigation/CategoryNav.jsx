@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import meetingLogo from '../../assets/miselaneous/meetinglogo.png';
+import { Link } from 'react-router-dom';
 
 const CategoryNav = ({ categories }) => {
   const [activeCategory, setActiveCategory] = useState(null);
@@ -51,9 +52,9 @@ const CategoryNav = ({ categories }) => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-gray-900 backdrop-blur-md shadow-sm z-50 flex items-center p-2">
-      <a href="/">
+      <Link to="/">
         <img src={meetingLogo} alt="Logo" id="logo" />
-      </a>
+      </Link>
       <div className="max-w-6xl mx-auto px-4 w-full">
         <div
           ref={scrollContainerRef}

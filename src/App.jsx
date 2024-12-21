@@ -7,12 +7,18 @@ import Register from './components/Register'; // Importa tu componente Register
 import { getValue } from './utils/authLocalStorage'
 import { FullScreenError } from './components/Error';
 import { Link } from 'react-router-dom';
+import { deleteLocalStorage } from './utils/authLocalStorage';
 
 function Layout({ children }) {
   let isAuthenticated = false;
 
   if (getValue()) {
     isAuthenticated = true;
+  }
+
+  const handleDelete = () => {
+    deleteLocalStorage()
+    window.location.reload()
   }
 
   return (
@@ -28,7 +34,7 @@ function Layout({ children }) {
             <div className="flex items-center">
               {isAuthenticated ? (
                 <button
-                  onClick={() => localStorage.removeItem('auth')}
+                  onClick={() => handleDelete()}
                   className="px-4 py-2 text-gray-800 hover:text-gray-600 font-medium transition-colors duration-200"
                 >
                   Cerrar Sesión
