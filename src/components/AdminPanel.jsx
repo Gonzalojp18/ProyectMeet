@@ -7,10 +7,9 @@ import { getToken } from '../utils/authLocalStorage';
 import axios from 'axios';
 import { handleAxiosError } from '../utils/handleAxiosError';
 import { Link } from 'react-router-dom';
+import API_URI from '../utils/getApiUri'
 
 const AdminPanel = () => {
-
-  const API_URI = 'https://server-omega-drab-64.vercel.app'
 
   const [activeTab, setActiveTab] = useState('products');
 

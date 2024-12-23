@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 const corsOptions = {
-  origin: 'https://proyect-meet-front-end.vercel.app',
+  origin: `${process.env.development ? 'http:localhost:5173' : 'https://proyect-meet-front-end.vercel.app'}`,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 };

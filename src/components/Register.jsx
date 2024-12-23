@@ -3,10 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { handleAxiosError } from '../utils/handleAxiosError'
 import { setToken } from '../utils/authLocalStorage';
+import API_URI from '../utils/getApiUri'
 
 const Register = () => {
-    const API_URI = 'https://server-omega-drab-64.vercel.app'
-
     const [formData, setFormData] = useState({
         name: '',
         email: '',
