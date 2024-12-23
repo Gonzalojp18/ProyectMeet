@@ -67,7 +67,7 @@ export const useDailyPromotion = () => {
             const now = new Date();
             const day = now.getDay();
             setCurrentDay(day);
-            setIsWeekday(day > 0 && day < 7);
+            setIsWeekday(day > 0 && day < 6);
         }, 1000 * 60); // Check every minute
 
         return () => clearInterval(timer);

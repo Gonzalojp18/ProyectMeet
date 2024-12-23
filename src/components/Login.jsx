@@ -6,6 +6,12 @@ import axios from 'axios';
 const Login = () => {
   const API_URI = 'https://server-omega-drab-64.vercel.app'
 
+
+  const apiTest = import.meta.env.VITE_API_LOCAL;
+  console.log(apiTest)
+
+
+
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
