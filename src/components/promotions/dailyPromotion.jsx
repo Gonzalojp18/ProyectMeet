@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDailyPromotion } from '../hooks/useDailyPromotion';
+import { useDailyPromotion } from '../../hooks/useDailyPromotion';
 import { motion } from 'framer-motion';
 
 const DailyPromotion = () => {
