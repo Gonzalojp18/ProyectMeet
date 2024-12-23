@@ -6,8 +6,10 @@ import authRoutes from '../routes/authRoute.js';
 import { errorHandler } from '../middleware/errorHandler.js';
 import connectDB from '../database/db.js';
 import colors from 'colors';
+import API_URI from '../utils/getApiUrl.js'
 
 dotenv.config();
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -15,7 +17,6 @@ const app = express();
 
 const corsOptions = {
   origin: 'https://proyect-meet-front-end.vercel.app',
-  // origin: 'https://proyect-meet-front-end.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 };
