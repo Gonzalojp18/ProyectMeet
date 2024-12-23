@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { setToken } from '../utils/authLocalStorage'
 import axios from 'axios';
+import API_URI from '../utils/getApiUri'
 
 const Login = () => {
-  const API_URI = 'https://server-omega-drab-64.vercel.app'
-
-
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
