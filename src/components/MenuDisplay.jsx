@@ -2,15 +2,18 @@ import React from 'react';
 import { useFetch } from '../hooks/useFetch';
 import useMenuStore from '../store/menuStore';
 import CategoryDisplay from './categories/CategoryDisplay';
-import Footer from '../components/footer/Footer';
+// import Footer from '../components/footer/Footer';
 import { CategoryNav, LocationNav } from './navigation';
 import BrandsSection from './brands/BrandsSection';
 import DailyPromotion from '../components/promotions/DailyPromotion'
 import logo from '../../public/assets/miselaneous/logosinbg.webp'
 import WeatherCard from '../components/Weather/WeatherCard'
+import { MainFooter } from '../components/footer';
+import { LocationsSection } from '../components/location';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import API_URI from '../utils/getApiUri'
+import { motion } from 'framer-motion';
 
 const MenuDisplay = () => {
   const { locationId } = useParams();
@@ -41,6 +44,15 @@ const MenuDisplay = () => {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 main-container-menu">
+      <motion.div
+          className="mb-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.6,
+            ease: "easeOut"
+          }}
+        >
         <img className='m-auto' src={logo} alt="logo" />
           <p className="text-center text-xl mb-8 italic text-menu">
           Bienvenido a nuestro menú digital. Explore nuestras deliciósas opciónes y disfruta de una experiencia.<br />
@@ -48,6 +60,7 @@ const MenuDisplay = () => {
           <span className='text-sm font-bold'>"Comés como en casa, pero sin lavar los platos!"
           </span>
         </p>
+        </motion.div>
         <DailyPromotion />
         {data.categories.map((category) => (
           <CategoryDisplay
@@ -64,7 +77,8 @@ const MenuDisplay = () => {
           </div>
         )}
       </div>
-        <Footer />
+      <LocationsSection />
+      <MainFooter />
       </main>
     </>
   );
