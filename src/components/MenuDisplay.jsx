@@ -10,14 +10,13 @@ import logo from '../../public/assets/miselaneous/logosinbg.webp'
 import WeatherCard from '../components/Weather/WeatherCard'
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
+import API_URI from '../utils/getApiUri'
 
 const MenuDisplay = () => {
   const { locationId } = useParams();
   const apiKey = import.meta.env.VITE_API_KEY;
   const navigate = useNavigate();
-
-  console.log(apiTest)
+  const API_URI = 'https://server-omega-drab-64.vercel.app'
 
   const { data, loading, error } = useFetch(`${API_URI}/api/menu/${locationId}`)
 
