@@ -1,5 +1,5 @@
 const baseApiUrl = import.meta.env.VITE_API_NODE_ENV === 'production'
-  ? import.meta.env.VITE_API_URI_PRODUCTION
-  : import.meta.env.VITE_API_URI_DEVELOPMENT
+  ? 'http://localhost:3000'
+  : 'https://server-eta-rosy.vercel.app'
 
 export default baseApiUrl;

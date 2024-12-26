@@ -5,6 +5,7 @@ import axios from 'axios';
 import API_URI from '../utils/getApiUri'
 
 const Login = () => {
+  console.log(API_URI);
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
