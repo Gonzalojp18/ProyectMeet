@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuGallery from './MenuGallery';
-import logo from '/public/assets/miselaneous/meetinglogo.PNG'
+import meetingLogo from '../../../public/assets/miselaneous/meetinglogo.png'
 import SocialLinks from './SocialLinks';
 
 const featuredDishes = [
@@ -44,7 +44,7 @@ const MainFooter = () => {
                     {/* Logo and About */}
                     <div>
                         <img
-                            src={logo}
+                            src={meetingLogo}
                             alt="Logo del Restaurante"
                             className="h-16 w-auto mb-6 mx-auto"
                         />
