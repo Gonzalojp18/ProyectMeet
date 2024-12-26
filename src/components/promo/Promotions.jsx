@@ -1,8 +1,8 @@
 import React from 'react';
-import { useDailyPromotion } from '../../hooks/useDailyPromotion';
+import { useDailyPromotion } from './useDailyPromotion';
 import { motion } from 'framer-motion';
 
-const DailyPromotion = () => {
+const Promotions = () => {
     const { isWeekday, promotion, styles } = useDailyPromotion();
 
     if (!isWeekday) {
@@ -53,4 +53,4 @@ const DailyPromotion = () => {
     );
 };
 
-export default DailyPromotion;
+export default Promotions;

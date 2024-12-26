@@ -4,9 +4,9 @@ import useMenuStore from '../store/menuStore';
 import CategoryDisplay from './categories/CategoryDisplay';
 import { CategoryNav, LocationNav } from './navigation';
 import BrandsSection from './brands/BrandsSection';
-import DailyPromotion from './promotions/dailyPromotion'
 import logo from '../../public/assets/miselaneous/logosinbg.webp'
 import WeatherCard from '../components/Weather/WeatherCard'
+import Promotion from '../components/promo/Promotions'
 import { MainFooter } from '../components/footer';
 import { LocationsSection } from '../components/location';
 import { useParams } from 'react-router-dom';
@@ -60,7 +60,7 @@ const MenuDisplay = () => {
           </span>
         </p>
         </motion.div>
-        <DailyPromotion />
+        <Promotion />
         {data.categories.map((category) => (
           <CategoryDisplay
             key={category._id}
