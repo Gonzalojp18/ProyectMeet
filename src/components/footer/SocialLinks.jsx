@@ -11,7 +11,7 @@ const SocialLinks = () => {
       >
         <span className="sr-only">Instagram</span>
         <svg
-          className="h-6 w-6"
+          className="h-8   mx-auto"
           fill="currentColor"
           viewBox="0 0 24 24"
         >
