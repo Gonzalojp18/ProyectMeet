@@ -4,10 +4,6 @@ import useMenuStore from '../store/menuStore';
 import CategoryDisplay from './categories/CategoryDisplay';
 import { CategoryNav, LocationNav } from './navigation';
 import BrandsSection from './brands/BrandsSection';
-<<<<<<< HEAD
-=======
-import DailyPromotion from './promotions/dailyPromotion'
->>>>>>> 0d75c729c4cb46a31f705792ad560992bfeed456
 import logo from '../../public/assets/miselaneous/logosinbg.webp'
 import WeatherCard from '../components/Weather/WeatherCard'
 import Promotion from '../components/promo/Promotions'
