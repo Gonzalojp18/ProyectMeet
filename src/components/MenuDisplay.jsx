@@ -4,7 +4,7 @@ import useMenuStore from '../store/menuStore';
 import CategoryDisplay from './categories/CategoryDisplay';
 import { CategoryNav, LocationNav } from './navigation';
 import BrandsSection from './brands/BrandsSection';
-import DailyPromotion from '../components/promotions/DailyPromotion'
+// import DailyPromotion from '../components/promotions/DailyPromotion'
 import logo from '../../public/assets/miselaneous/logosinbg.webp'
 import WeatherCard from '../components/Weather/WeatherCard'
 import { MainFooter } from '../components/footer';
@@ -60,20 +60,17 @@ const MenuDisplay = () => {
           </span>
         </p>
         </motion.div>
-        <DailyPromotion />
+        {/* <DailyPromotion /> */}
         {data.categories.map((category) => (
           <CategoryDisplay
             key={category._id}
             category={category}
           />
         ))}
-
-
-
         <BrandsSection />
         <div>
-                {/* Weather Card - Only show on menu page */}
-                {window.location.pathname === `/${locationId}` && (
+        {/* Weather Card - Only show on menu page */}
+        {window.location.pathname === `/${locationId}` && (
           <div className="top-16 z-10 bg-gray-100 main-weather">
             <WeatherCard IdApp={apiKey} />
           </div>
