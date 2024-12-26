@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { defaultStyles, compactStyles, featuredStyles } from "./styleCategory";
+import { motion } from 'framer-motion';
 
 const styles = {
     default: defaultStyles,
@@ -8,8 +8,13 @@ const styles = {
     featured: featuredStyles,
 };
 
-
 const Category = ({ category }) => {
+
+    if (!category || !category.items) return null; // Manejo seguro
+    
+    //create icons in coffeCategory
+    const isCoffeeCategory = category.name?.toLowerCase().includes('cafetería');
+
     const style = styles[category.style || 'default'];
 
     const renderImage = (position) => {
@@ -27,7 +32,13 @@ const Category = ({ category }) => {
     };
 
     const renderTitle = () => (
-        <div id={`category-${category._id}`} className="flex flex-col items-center scroll-mt-20">
+        <motion.div
+            id={`category-${category.id}`}
+            className="flex flex-col items-center scroll-mt-20"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+        >
             <div className="flex items-center">
                 <h2 className={style.title}>{category.name}</h2>
                 {renderImage('beside-title')}
@@ -35,7 +46,7 @@ const Category = ({ category }) => {
             {category.subtitle && (
                 <p className={style.subtitle}>{category.subtitle}</p>
             )}
-        </div>
+        </motion.div>
     );
 
     return (
@@ -44,15 +55,15 @@ const Category = ({ category }) => {
             {renderTitle()}
             <div className={style.grid}>
                 {category.items.map((item) => (
-                    <div key={item._id} className={style.item}>
-                        <div className='flex flex-col text-left'>
-                            <h3 className={style.itemName}>{item.name}</h3>
-                            <p className={style.itemDescription}>{item.description}</p>
+                        <div key={item._id} className={style.item}>
+                            <div className='flex flex-col text-left'>
+                                <h3 className={style.itemName}>{item.name}</h3>
+                                <p className={style.itemDescription}>{item.description}</p>
+                            </div>
+                            <p className={style.price}>
+                                ${(item.prices).toFixed(2)}
+                            </p>
                         </div>
-                        <p className={style.price}>
-                            ${(item.prices).toFixed(2)}
-                        </p>
-                    </div>
                 ))}
             </div>
             {renderImage('bottom')}

@@ -798,7 +798,7 @@ export const initialMenu = {
     },
     {
       id: 15,
-      name: "Cafeteria",
+      name: "Cafetería",
       image: {
         url: '../assets/meriendas/medialunas.webp',
         position: "bottom", // imagen arriba de la categoría

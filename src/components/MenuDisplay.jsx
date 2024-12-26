@@ -2,7 +2,6 @@ import React from 'react';
 import { useFetch } from '../hooks/useFetch';
 import useMenuStore from '../store/menuStore';
 import CategoryDisplay from './categories/CategoryDisplay';
-// import Footer from '../components/footer/Footer';
 import { CategoryNav, LocationNav } from './navigation';
 import BrandsSection from './brands/BrandsSection';
 import DailyPromotion from '../components/promotions/DailyPromotion'
@@ -68,6 +67,9 @@ const MenuDisplay = () => {
             category={category}
           />
         ))}
+
+
+
         <BrandsSection />
         <div>
                 {/* Weather Card - Only show on menu page */}

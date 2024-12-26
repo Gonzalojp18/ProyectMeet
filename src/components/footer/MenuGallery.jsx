@@ -19,7 +19,7 @@ const MenuGallery = ({ items }) => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
                         <div className="absolute bottom-0 left-0 right-0 p-4">
-                            <p className="text-white text-sm font-medium">{item.name}</p>
+                            <p className="text-white text-xl font-medium">{item.name}</p>
                         </div>
                     </div>
                 </motion.div>
