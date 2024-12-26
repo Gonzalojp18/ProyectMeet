@@ -11,7 +11,6 @@ const styles = {
 const Category = ({ category }) => {
 
     if (!category || !category.items) return null; // Manejo seguro
-    
     //create icons in coffeCategory
     const isCoffeeCategory = category.name?.toLowerCase().includes('cafetería');
 
