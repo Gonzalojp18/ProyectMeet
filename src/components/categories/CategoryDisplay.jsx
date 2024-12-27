@@ -32,7 +32,7 @@ const Category = ({ category }) => {
 
     const renderTitle = () => (
         <motion.div
-            id={`category-${category.id}`}
+            id={`category-${category._id}`}
             className="flex flex-col items-center scroll-mt-20"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
