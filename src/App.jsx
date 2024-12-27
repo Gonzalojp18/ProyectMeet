@@ -46,13 +46,16 @@ function Layout({ children }) {
                     className="px-4 py-2 text-gray-800 hover:text-gray-600 font-medium transition-colors duration-200"
                   >
                     Iniciar Sesión
-                  </Link>
-                  <Link
-                    to="/register"
-                    className="px-4 py-2 text-gray-800 hover:text-gray-600 font-medium transition-colors duration-200"
-                  >
-                    Registrarse
-                  </Link>
+                    </Link>
+                    {
+                      localStorage.getItem('admin') &&
+                      <Link
+                        to="/register"
+                        className="px-4 py-2 text-gray-800 hover:text-gray-600 font-medium transition-colors duration-200"
+                      >
+                        Registrarse
+                      </Link>
+                    }
                 </>
               )}
             </div>
@@ -72,8 +75,16 @@ const ProtectedRoute = ({ element }) => {
     return element;
   }
 
-  return <Navigate to="/register" />;
+  return <Navigate to="/login" />;
 };
+
+const ProtectRegister = ({ element }) => {
+  if (localStorage.getItem('admin')) {
+    return element;
+  }
+
+  return <Navigate to="/login" />;
+}
 
 const router = createBrowserRouter([
   {
@@ -90,7 +101,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/register',
-    element: <Layout><Register /></Layout>,
+    element: <Layout><ProtectRegister element={<Register />}></ProtectRegister></Layout>,
   },
   {
     path: '*',

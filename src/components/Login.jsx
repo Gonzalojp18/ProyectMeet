@@ -5,11 +5,14 @@ import axios from 'axios';
 import API_URI from '../utils/getApiUri'
 
 const Login = () => {
-  console.log(API_URI);
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
+  const [isNavigateToRegister, setIsNavigateToRegister] = useState(false);
+  const [validate, setValidate] = useState('');
   const navigate = useNavigate();
+
+  const ADMIN_VALIDATE = import.meta.env.VITE_ADMIN_CODE
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +29,17 @@ const Login = () => {
         setLoading(false)
     }
   };
+
+  const handleCode = (e) => {
+    e.preventDefault()
+
+    if (ADMIN_VALIDATE === validate) {
+      localStorage.setItem('admin', validate)
+      navigate('/register')
+    } else {
+      setError('Codigo Erroneo')
+    }
+  }
 
   return (
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gray-50">
@@ -77,6 +91,16 @@ const Login = () => {
             </button>
           </div>
         </form>
+
+        <p className="text-center text-base font-extrabold text-gray-500">
+            Registrate <span onClick={() => setIsNavigateToRegister((prev) =>  !prev)} className='cursor-pointer text-gray-900 underline'>aqui</span>
+            {isNavigateToRegister &&
+              <form onSubmit={handleCode} className='flex items-center justify-center'>
+                <input className='appearance-none rounded-none  w-full px-3 py-2 mt-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' type='text' value={validate} onChange={(e) => setValidate(e.target.value)} placeholder='Ingresa el codigo privado' />
+                <button type='submit' className='mt-2 ml-2 outline p-1 rounded'>Confirmar</button>
+              </form>
+            }
+          </p>
       </div>
     </div>
   );
