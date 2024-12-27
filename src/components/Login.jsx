@@ -92,15 +92,18 @@ const Login = () => {
           </div>
         </form>
 
-        <p className="text-center text-base font-extrabold text-gray-500">
-            Registrate <span onClick={() => setIsNavigateToRegister((prev) =>  !prev)} className='cursor-pointer text-gray-900 underline'>aqui</span>
-            {isNavigateToRegister &&
-              <form onSubmit={handleCode} className='flex items-center justify-center'>
-                <input className='appearance-none rounded-none  w-full px-3 py-2 mt-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' type='text' value={validate} onChange={(e) => setValidate(e.target.value)} placeholder='Ingresa el codigo privado' />
-                <button type='submit' className='mt-2 ml-2 outline p-1 rounded'>Confirmar</button>
-              </form>
-            }
-          </p>
+        {
+          !localStorage.getItem('admin') &&
+          <p className="text-center text-base font-extrabold text-gray-500">
+          Registrate <span onClick={() => setIsNavigateToRegister((prev) =>  !prev)} className='cursor-pointer text-gray-900 underline'>aqui</span>
+          {isNavigateToRegister &&
+            <form onSubmit={handleCode} className='flex items-center justify-center'>
+              <input className='appearance-none rounded-none  w-full px-3 py-2 mt-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' type='text' value={validate} onChange={(e) => setValidate(e.target.value)} placeholder='Ingresa el codigo privado' />
+              <button type='submit' className='mt-2 ml-2 outline p-1 rounded'>Confirmar</button>
+            </form>
+          }
+        </p>
+        }
       </div>
     </div>
   );
