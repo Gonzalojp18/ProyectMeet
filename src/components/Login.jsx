@@ -12,7 +12,7 @@ const Login = () => {
   const [validate, setValidate] = useState('');
   const navigate = useNavigate();
 
-  const ADMIN_VALIDATE = import.meta.env.VITE_ADMIN_CODE
+  const ADMIN_VALIDATE = 'AdminSecret'
 
   const handleSubmit = async (e) => {
     e.preventDefault();
