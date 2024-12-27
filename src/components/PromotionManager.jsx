@@ -13,7 +13,7 @@ const PromotionManager = ({ category }) => {
       icon: '',
       image: '',
       itemId: '',
-      action: { text: '', link: '' }
+      action: { text: '', link: '' },
     }
   );
 
