@@ -81,16 +81,17 @@ const CategoryItems = ({
                 </div>
                 <div className="mt-4 grid grid-cols-2 gap-4">
                   {locations.map(location => (
-                    <div key={location._id} className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                      <span className="text-sm font-medium text-gray-700">{location.name}</span>
-                      {item.prices[location.nameId] !== undefined ? (
-                        <span className="text-sm font-medium text-gray-900">
-                          ${item.prices[location.nameId].toFixed(2)}
-                        </span>
-                      ) : (
-                        <span className="text-sm text-gray-500">Producto no disponible</span>
-                      )}
-                    </div>
+                    location.name === 'Menu sin precios' ? null :
+                      <div key={location._id} className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span className="text-sm font-medium text-gray-700">{location.name}</span>
+                        {item.prices[location.nameId] !== undefined ? (
+                          <span className="text-sm font-medium text-gray-900">
+                            ${item.prices[location.nameId].toFixed(2)}
+                          </span>
+                        ) : (
+                          <span className="text-sm text-gray-500">Producto no disponible</span>
+                        )}
+                      </div>
                   ))}
                 </div>
               </div>

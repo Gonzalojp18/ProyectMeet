@@ -50,15 +50,17 @@ const Category = ({ category }) => {
             {renderTitle()}
             <div className={style.grid}>
                 {category.items.map((item) => (
+                    <>
                         <div key={item._id} className={style.item}>
                             <div className='flex flex-col text-left'>
                                 <h3 className={style.itemName}>{item.name}</h3>
                                 <p className={style.itemDescription}>{item.description}</p>
                             </div>
                             <p className={style.price}>
-                                ${(item.prices).toFixed(2)}
+                                {item.prices === 0 ? null : `$${(item.prices).toFixed(2)}`}
                             </p>
                         </div>
+                    </>
                 ))}
             </div>
             {renderImage('bottom')}
