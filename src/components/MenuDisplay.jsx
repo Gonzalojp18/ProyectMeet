@@ -7,6 +7,7 @@ import BrandsSection from './brands/BrandsSection';
 import logo from '../../public/assets/miselaneous/logosinbg.webp'
 import WeatherCard from '../components/Weather/WeatherCard'
 import Promotion from '../components/promo/Promotions'
+import { FullScreenError } from './Error'
 import { MainFooter } from '../components/footer';
 import { LocationsSection } from '../components/location';
 import { useParams } from 'react-router-dom';
