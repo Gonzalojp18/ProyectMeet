@@ -8,8 +8,10 @@ import axios from 'axios';
 import { handleAxiosError } from '../utils/handleAxiosError';
 import { Link } from 'react-router-dom';
 import API_URI from '../utils/getApiUri'
+import { useNavigate } from 'react-router-dom';
 
 const AdminPanel = () => {
+  const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState('products');
 
@@ -20,7 +22,7 @@ const AdminPanel = () => {
   }
 
   if (error) {
-    return <Link to='/register' className='bg-white p-6 shadow sm:rounded-lg mt-5'>Please log in</Link>;
+    return navigate('/login');
   }
 
   const handleAddItem = async (categoryId, itemData) => {
@@ -67,21 +69,19 @@ const AdminPanel = () => {
           <nav className="-mb-px flex space-x-8">
             <button
               onClick={() => setActiveTab('products')}
-              className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                activeTab === 'products'
-                  ? 'border-orange-500 text-orange-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-              }`}
+              className={`py-4 px-1 border-b-2 font-medium text-sm ${activeTab === 'products'
+                ? 'border-orange-500 text-orange-600'
+                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
             >
               {loading ? 'Loading...' : 'Productos'}
             </button>
             <button
               onClick={() => setActiveTab('promotions')}
-              className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                activeTab === 'promotions'
-                  ? 'border-orange-500 text-orange-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-              }`}
+              className={`py-4 px-1 border-b-2 font-medium text-sm ${activeTab === 'promotions'
+                ? 'border-orange-500 text-orange-600'
+                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
             >
               Promociones
             </button>

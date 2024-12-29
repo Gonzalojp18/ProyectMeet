@@ -18,6 +18,7 @@ function Layout({ children }) {
 
   const handleDelete = () => {
     deleteLocalStorage()
+    localStorage.removeItem('admin')
     window.location.reload()
   }
 
@@ -46,16 +47,16 @@ function Layout({ children }) {
                     className="px-4 py-2 text-gray-800 hover:text-gray-600 font-medium transition-colors duration-200"
                   >
                     Iniciar Sesión
+                  </Link>
+                  {
+                    localStorage.getItem('admin') &&
+                    <Link
+                      to="/register"
+                      className="px-4 py-2 text-gray-800 hover:text-gray-600 font-medium transition-colors duration-200"
+                    >
+                      Registrarse
                     </Link>
-                    {
-                      localStorage.getItem('admin') &&
-                      <Link
-                        to="/register"
-                        className="px-4 py-2 text-gray-800 hover:text-gray-600 font-medium transition-colors duration-200"
-                      >
-                        Registrarse
-                      </Link>
-                    }
+                  }
                 </>
               )}
             </div>
