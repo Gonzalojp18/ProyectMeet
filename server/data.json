@@ -13,7 +13,8 @@
           "description": "Cafe a eleccion mas tostadas con queso untable y mermelada",
           "prices": {
             "location1": 5900,
-            "location2": 5900
+            "location2": 5900,
+            "location3": 0
           }
         },
         {
@@ -21,21 +22,24 @@
           "description": "Tostado de jamon y queso (Pan arabe) y exprimido de naranja",
           "prices": {
             "location1": 8100,
-            "location2": 8100
+            "location2": 8100,
+            "location3": 0
           }
         },
         {
           "name": "Cafe con leche acompañado con 3 Medialunas",
           "prices": {
             "location1": 5500,
-            "location2": 8100
+            "location2": 8100,
+            "location3": 0
           }
         },
         {
           "name": "Omellete acompañado de exprimido de Naranja",
           "prices": {
             "location1": 7800,
-            "location2": 7800
+            "location2": 7800,
+            "location3": 0
           }
         },
         {
@@ -43,7 +47,8 @@
           "description": "Huevos revueltos mas tostadas de pan de campo, acompañado de exprimido de naranja mas infusión",
           "prices": {
             "location1": 8200,
-            "location2": 8200
+            "location2": 8200,
+            "location3": 0
           }
         },
         {
@@ -51,14 +56,16 @@
           "description": "Cremoso yogurt natural, trozos de durazno y granola",
           "prices": {
             "location1": 4500,
-            "location2": 4500
+            "location2": 4500,
+            "location3": 0
           }
         },
         {
           "description": "Cremoso yogurt natural, avena y frutos rojos",
           "prices": {
             "location1": 4500,
-            "location2": 4500
+            "location2": 4500,
+            "location3": 0
           }
         }
       ],
@@ -77,7 +84,8 @@
           "description": "Acompañados con consome de Tomáte.",
           "prices": {
             "location1": 4900,
-            "location2": 5800
+            "location2": 5800,
+            "location3": 0
           }
         },
         {
@@ -85,7 +93,8 @@
           "description": "Opcion: Cocina o Babe",
           "prices": {
             "location1": 6800,
-            "location2": 7200
+            "location2": 7200,
+            "location3": 0
           }
         },
         {
@@ -93,7 +102,8 @@
           "description": "Acompañada de salsa alioli",
           "prices": {
             "location1": 6100,
-            "location2": 6500
+            "location2": 6500,
+            "location3": 0
           }
         },
         {
@@ -101,7 +111,8 @@
           "description": "Sola",
           "prices": {
             "location1": 5900,
-            "location2": 6500
+            "location2": 6500,
+            "location3": 0
           }
         },
         {
@@ -109,7 +120,8 @@
           "description": "Sola",
           "prices": {
             "location1": 5500,
-            "location2": 6300
+            "location2": 6300,
+            "location3": 0
           }
         },
         {
@@ -117,7 +129,8 @@
           "description": "A Caballo",
           "prices": {
             "location1": 6300,
-            "location2": 7200
+            "location2": 7200,
+            "location3": 0
           }
         }
       ],
@@ -136,7 +149,8 @@
           "description": "",
           "prices": {
             "location1": 9200,
-            "location2": 9700
+            "location2": 9700,
+            "location3": 0
           }
         },
         {
@@ -144,7 +158,8 @@
           "description": "",
           "prices": {
             "location1": 8950,
-            "location2": 8950
+            "location2": 8950,
+            "location3": 0
           }
         },
         {
@@ -152,7 +167,8 @@
           "description": "",
           "prices": {
             "location1": 8100,
-            "location2": 7400
+            "location2": 7400,
+            "location3": 0
           }
         },
         {
@@ -160,7 +176,8 @@
           "description": "",
           "prices": {
             "location1": 9100,
-            "location2": 9300
+            "location2": 9300,
+            "location3": 0
           }
         },
         {
@@ -168,7 +185,8 @@
           "description": "",
           "prices": {
             "location1": 7550,
-            "location2": 8250
+            "location2": 8250,
+            "location3": 0
           }
         },
         {
@@ -176,7 +194,8 @@
           "description": "Milanesa de carne con colchon de guacamole y huevo frito acompañada con papas fritas",
           "prices": {
             "location1": 9100,
-            "location2": 9100
+            "location2": 9100,
+            "location3": 0
           }
         },
         {
@@ -184,7 +203,8 @@
           "description": "opcional queso veggie",
           "prices": {
             "location1": 5900,
-            "location2": 6300
+            "location2": 6300,
+            "location3": 0
           }
         }
       ],
@@ -204,7 +224,8 @@
           "description": "Lechuga, tomate, jamon, queso y huevo a la plancha. Acompañadas con papas",
           "prices": {
             "location1": 8200,
-            "location2": 8900
+            "location2": 8900,
+            "location3": 0
           }
         },
         {
@@ -212,7 +233,8 @@
           "description": "Queso cheddar, mostaza, pepino encurtido y cebolla caramelizadas",
           "prices": {
             "location1": 8400,
-            "location2": 8900
+            "location2": 8900,
+            "location3": 0
           }
         }
       ],
@@ -227,7 +249,8 @@
           "description": "Jamon crudo, queso blanco, rúcula y tomates secos",
           "prices": {
             "location1": 6950,
-            "location2": 7100
+            "location2": 7100,
+            "location3": 0
           }
         },
         {
@@ -235,7 +258,8 @@
           "description": "Sandwich untado de mayoliva, jamon cocido, queso tybo, lechuga y tomates cherry confitados",
           "prices": {
             "location1": 7700,
-            "location2": 7700
+            "location2": 7700,
+            "location3": 0
           }
         },
         {
@@ -243,7 +267,8 @@
           "description": "Pollo grille, provoleta a la plancha, morron confitado, rodajas de remolacha y pesto de cilantro",
           "prices": {
             "location1": 7800,
-            "location2": 7900
+            "location2": 7900,
+            "location3": 0
           }
         }
       ],
@@ -257,7 +282,8 @@
           "name": "Simple",
           "prices": {
             "location1": 6100,
-            "location2": 6100
+            "location2": 6100,
+            "location3": 0
           }
         },
         {
@@ -265,7 +291,8 @@
           "description": "Jamon | Queso | Tomáte | Lechuga - Maximo 2 rellenos a elección",
           "prices": {
             "location1": 7400,
-            "location2": 7400
+            "location2": 7400,
+            "location3": 0
           }
         },
         {
@@ -273,7 +300,8 @@
           "description": "Jamon, queso, huevo, tomáte y lechuga",
           "prices": {
             "location1": 8200,
-            "location2": 8200
+            "location2": 8200,
+            "location3": 0
           }
         },
         {
@@ -281,7 +309,8 @@
           "description": "Jamon y Queso",
           "prices": {
             "location1": 4500,
-            "location2": 4500
+            "location2": 4500,
+            "location3": 0
           }
         },
         {
@@ -289,7 +318,8 @@
           "description": "Jamon, queso, tomate",
           "prices": {
             "location1": 4700,
-            "location2": 4700
+            "location2": 4700,
+            "location3": 0
           }
         },
         {
@@ -297,7 +327,8 @@
           "description": "Jamon, queso huevo y tomate",
           "prices": {
             "location1": 4800,
-            "location2": 4800
+            "location2": 4800,
+            "location3": 0
           }
         }
       ],
@@ -312,7 +343,8 @@
           "description": "",
           "prices": {
             "location1": 7800,
-            "location2": 8500
+            "location2": 8500,
+            "location3": 0
           }
         },
         {
@@ -320,7 +352,8 @@
           "description": "",
           "prices": {
             "location1": 7800,
-            "location2": 8500
+            "location2": 8500,
+            "location3": 0
           }
         },
         {
@@ -328,7 +361,8 @@
           "description": "",
           "prices": {
             "location1": 7800,
-            "location2": 8500
+            "location2": 8500,
+            "location3": 0
           }
         }
       ],
@@ -347,7 +381,8 @@
           "name": "Carne desmechada, queso y vegetales asados",
           "prices": {
             "location1": 8100,
-            "location2": 8700
+            "location2": 8700,
+            "location3": 0
           }
         },
         {
@@ -355,7 +390,8 @@
           "description": "Berenjeas asadas, espinaca, cebolla, hummus y lentejas",
           "prices": {
             "location1": 8100,
-            "location2": 8700
+            "location2": 8700,
+            "location3": 0
           }
         }
       ],
@@ -374,7 +410,8 @@
           "description": "Lechuga, tomates cherrys confitados, palta, aceitunas negras, pollo rebozado con panko, mix de semillas.",
           "prices": {
             "location1": 8600,
-            "location2": 8850
+            "location2": 8850,
+            "location3": 0
           }
         },
         {
@@ -382,7 +419,8 @@
           "description": "Tiras de pollo grille, lechuga, queso en hebras, crutones de pan tostado y salsa caesar.",
           "prices": {
             "location1": 8400,
-            "location2": 8500
+            "location2": 8500,
+            "location3": 0
           }
         },
         {
@@ -390,7 +428,8 @@
           "description": "Lomo de atun, arroz, aceitunas negras, tomate cherry, huevo duro, zanahria y choclo.",
           "prices": {
             "location1": 9200,
-            "location2": 9200
+            "location2": 9200,
+            "location3": 0
           }
         },
         {
@@ -399,7 +438,8 @@
           "description": "Rucula, tomates cherry, tiras de jamon crudo, nueces, queso parmesano.",
           "prices": {
             "location1": 8600,
-            "location2": 9100
+            "location2": 9100,
+            "location3": 0
           }
         },
         {
@@ -408,7 +448,8 @@
           "description": "Lechuga, pollo crocante, tomates secos y palta. Acompañado con salsa de yogurt.",
           "prices": {
             "location1": 8700,
-            "location2": 9000
+            "location2": 9000,
+            "location3": 0
           }
         }
       ],
@@ -429,7 +470,8 @@
           "description": "huevo benedictino, tomate cherry confitado y queso parmesano",
           "prices": {
             "location1": 7700,
-            "location2": 8100
+            "location2": 8100,
+            "location3": 0
           }
         },
         {
@@ -437,7 +479,8 @@
           "description": "jamon, tomate, queso blanco y parmesano",
           "prices": {
             "location1": 7500,
-            "location2": 8000
+            "location2": 8000,
+            "location3": 0
           }
         },
         {
@@ -445,7 +488,8 @@
           "description": "polvo de olivas negras, rúcula, lomito de atún y queso parmesano",
           "prices": {
             "location1": 8000,
-            "location2": 8200
+            "location2": 8200,
+            "location3": 0
           }
         }
       ],
@@ -464,14 +508,16 @@
           "description": "Con queso blanco, jamón crudo, rúcula y tomates cherry confitados",
           "prices": {
             "location1": 4200,
-            "location2": 4350
+            "location2": 4350,
+            "location3": 0
           }
         },
         {
           "description": "Con deliciosa palta y huevos revueltos",
           "prices": {
             "location1": 3850,
-            "location2": 4350
+            "location2": 4350,
+            "location3": 0
           }
         }
       ],
@@ -486,14 +532,16 @@
           "description": "Con dulce de leche o crema blanca",
           "prices": {
             "location1": 2500,
-            "location2": 2500
+            "location2": 2500,
+            "location3": 0
           }
         },
         {
           "name": "Chocotorta",
           "prices": {
             "location1": 2500,
-            "location2": 2500
+            "location2": 2500,
+            "location3": 0
           }
         },
         {
@@ -507,7 +555,8 @@
           "name": "Cookie Oreo",
           "prices": {
             "location1": 2500,
-            "location2": 2500
+            "location2": 2500,
+            "location3": 0
           }
         },
         {
@@ -521,14 +570,16 @@
           "name": "Medialuna de Manteca",
           "prices": {
             "location1": 1300,
-            "location2": 1300
+            "location2": 1300,
+            "location3": 0
           }
         },
         {
           "name": "Medialuna rellena con dulce de leche",
           "prices": {
             "location1": 1500,
-            "location2": 1500
+            "location2": 1500,
+            "location3": 0
           }
         },
         {
@@ -536,7 +587,8 @@
           "description": "(Limon, Naranja, Banana y Nuez, Vainilla y Arandanos)",
           "prices": {
             "location1": 2800,
-            "location2": 2800
+            "location2": 2800,
+            "location3": 0
           }
         },
         {
@@ -544,49 +596,56 @@
           "description": "Membrillo",
           "prices": {
             "location1": 2500,
-            "location2": 2500
+            "location2": 2500,
+            "location3": 0
           }
         },
         {
           "name": "Lemon Pie",
           "prices": {
             "location1": 2500,
-            "location2": 2500
+            "location2": 2500,
+            "location3": 0
           }
         },
         {
           "name": "Helado",
           "prices": {
             "location1": 2800,
-            "location2": 2800
+            "location2": 2800,
+            "location3": 0
           }
         },
         {
           "name": "Barra de Cereal",
           "prices": {
             "location1": 2000,
-            "location2": 2000
+            "location2": 2000,
+            "location3": 0
           }
         },
         {
           "name": "Cookie - Consultar Sabores disponibles",
           "prices": {
             "location1": 2600,
-            "location2": 2600
+            "location2": 2600,
+            "location3": 0
           }
         },
         {
           "name": "Apple Crumble",
           "prices": {
             "location1": 2800,
-            "location2": 2800
+            "location2": 2800,
+            "location3": 0
           }
         },
         {
           "name": "Chipa",
           "prices": {
             "location1": 2000,
-            "location2": 2000
+            "location2": 2000,
+            "location3": 0
           }
         },
         {
@@ -594,7 +653,8 @@
           "description": "Queso y Dulce (Batata o membrillo)",
           "prices": {
             "location1": 2500,
-            "location2": 2500
+            "location2": 2500,
+            "location3": 0
           }
         }
       ]
@@ -611,28 +671,32 @@
           "name": "Vainilla y Chips de Chocolate",
           "prices": {
             "location1": 2400,
-            "location2": 2400
+            "location2": 2400,
+            "location3": 0
           }
         },
         {
           "name": "Chocolate con Chips de Chocolate",
           "prices": {
             "location1": 2500,
-            "location2": 2500
+            "location2": 2500,
+            "location3": 0
           }
         },
         {
           "name": "Manzana",
           "prices": {
             "location1": 2700,
-            "location2": 2700
+            "location2": 2700,
+            "location3": 0
           }
         },
         {
           "name": "Arandanos",
           "prices": {
             "location1": 2600,
-            "location2": 2600
+            "location2": 2600,
+            "location3": 0
           }
         }
       ],
@@ -651,7 +715,8 @@
           "description": "Relleno de Gasnash de chocolate blanco",
           "prices": {
             "location1": 2600,
-            "location2": 2600
+            "location2": 2600,
+            "location3": 0
           }
         },
         {
@@ -659,35 +724,40 @@
           "description": "Rellenos de Nutella",
           "prices": {
             "location1": 2600,
-            "location2": 2600
+            "location2": 2600,
+            "location3": 0
           }
         },
         {
           "name": "Chocolate Negro",
           "prices": {
             "location1": 2500,
-            "location2": 2500
+            "location2": 2500,
+            "location3": 0
           }
         },
         {
           "name": "Chocolate Blanco",
           "prices": {
             "location1": 2500,
-            "location2": 2500
+            "location2": 2500,
+            "location3": 0
           }
         },
         {
           "name": "Maicena",
           "prices": {
             "location1": 2500,
-            "location2": 2500
+            "location2": 2500,
+            "location3": 0
           }
         },
         {
           "name": "Coco",
           "prices": {
             "location1": 2600,
-            "location2": 2600
+            "location2": 2600,
+            "location3": 0
           }
         },
         {
@@ -695,7 +765,8 @@
           "description": "Relleno con Dulce de leche",
           "prices": {
             "location1": 2600,
-            "location2": 2600
+            "location2": 2600,
+            "location3": 0
           }
         },
         {
@@ -703,7 +774,8 @@
           "description": "Consultar sabores disponibles",
           "prices": {
             "location1": 2300,
-            "location2": 2300
+            "location2": 2300,
+            "location3": 0
           }
         }
       ],
@@ -722,7 +794,8 @@
           "description": "",
           "prices": {
             "location1": 2500,
-            "location2": 2700
+            "location2": 2700,
+            "location3": 0
           }
         },
         {
@@ -730,7 +803,8 @@
           "description": "",
           "prices": {
             "location1": 2700,
-            "location2": 2900
+            "location2": 2900,
+            "location3": 0
           }
         },
         {
@@ -738,7 +812,8 @@
           "description": "",
           "prices": {
             "location1": 2900,
-            "location2": 3300
+            "location2": 3300,
+            "location3": 0
           }
         },
         {
@@ -746,7 +821,8 @@
           "description": "",
           "prices": {
             "location1": 2600,
-            "location2": 3100
+            "location2": 3100,
+            "location3": 0
           }
         },
         {
@@ -754,7 +830,8 @@
           "description": "",
           "prices": {
             "location1": 2950,
-            "location2": 3300
+            "location2": 3300,
+            "location3": 0
           }
         },
         {
@@ -762,7 +839,8 @@
           "description": "",
           "prices": {
             "location1": 2600,
-            "location2": 3200
+            "location2": 3200,
+            "location3": 0
           }
         },
         {
@@ -770,7 +848,8 @@
           "description": "",
           "prices": {
             "location1": 2950,
-            "location2": 2950
+            "location2": 2950,
+            "location3": 0
           }
         },
         {
@@ -778,7 +857,8 @@
           "description": "",
           "prices": {
             "location1": 2950,
-            "location2": 3300
+            "location2": 3300,
+            "location3": 0
           }
         }
       ],
@@ -792,7 +872,8 @@
           "description": "",
           "prices": {
             "location1": 3500,
-            "location2": 3800
+            "location2": 3800,
+            "location3": 0
           }
         },
         {
@@ -800,7 +881,8 @@
           "description": "",
           "prices": {
             "location1": 3600,
-            "location2": 3850
+            "location2": 3850,
+            "location3": 0
           }
         },
         {
@@ -808,7 +890,8 @@
           "description": "",
           "prices": {
             "location1": 3500,
-            "location2": 3800
+            "location2": 3800,
+            "location3": 0
           }
         },
         {
@@ -816,7 +899,8 @@
           "description": "",
           "prices": {
             "location1": 3300,
-            "location2": 3600
+            "location2": 3600,
+            "location3": 0
           }
         },
         {
@@ -824,7 +908,8 @@
           "description": "",
           "prices": {
             "location1": 3800,
-            "location2": 4100
+            "location2": 4100,
+            "location3": 0
           }
         },
         {
@@ -832,7 +917,8 @@
           "description": "",
           "prices": {
             "location1": 4500,
-            "location2": 4800
+            "location2": 4800,
+            "location3": 0
           }
         },
         {
@@ -840,7 +926,8 @@
           "description": "",
           "prices": {
             "location1": 4500,
-            "location2": 4800
+            "location2": 4800,
+            "location3": 0
           }
         }
       ],
@@ -860,7 +947,8 @@
           "description": "Equilibrio perfecto: Espinaca, manzana verde, anana, pera y limon",
           "prices": {
             "location1": 3900,
-            "location2": 4100
+            "location2": 4100,
+            "location3": 0
           }
         },
         {
@@ -868,7 +956,8 @@
           "description": "Nutricion y vitalidad: Zanahoria, naranja roja, jengibre y limon",
           "prices": {
             "location1": 3900,
-            "location2": 4100
+            "location2": 4100,
+            "location3": 0
           }
         },
         {
@@ -876,7 +965,8 @@
           "description": "Sabor y frescura: Limon, pepino, menta y gengibre",
           "prices": {
             "location1": 3900,
-            "location2": 4100
+            "location2": 4100,
+            "location3": 0
           }
         }
       ],
@@ -890,7 +980,8 @@
           "description": "",
           "prices": {
             "location1": 2200,
-            "location2": 2200
+            "location2": 2200,
+            "location3": 0
           }
         },
         {
@@ -898,7 +989,8 @@
           "description": "",
           "prices": {
             "location1": 2300,
-            "location2": 2300
+            "location2": 2300,
+            "location3": 0
           }
         },
         {
@@ -906,7 +998,8 @@
           "description": "",
           "prices": {
             "location1": 2200,
-            "location2": 2200
+            "location2": 2200,
+            "location3": 0
           }
         },
         {
@@ -914,7 +1007,8 @@
           "description": "",
           "prices": {
             "location1": 6800,
-            "location2": 6800
+            "location2": 6800,
+            "location3": 0
           }
         },
         {
@@ -922,7 +1016,8 @@
           "description": "",
           "prices": {
             "location1": 5600,
-            "location2": 5600
+            "location2": 5600,
+            "location3": 0
           }
         }
       ],
@@ -937,6 +1032,10 @@
     {
       "nameId": "location2",
       "name": "Sanitarias"
+    },
+    {
+      "nameId": "location3",
+      "name": "Menu sin precios"
     }
   ],
   "style": "compact"
