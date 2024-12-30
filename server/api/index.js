@@ -6,17 +6,19 @@ import authRoutes from '../routes/authRoute.js';
 import { errorHandler } from '../middleware/errorHandler.js';
 import connectDB from '../database/db.js';
 import colors from 'colors';
-import API_URI from '../utils/getApiUrl.js'
 
 dotenv.config();
 
+const baseApiUrl = process.env.NODE_ENV === 'development'
+  ? 'http://localhost:5000'
+  : 'https://meetingresstobar.vercel.app'
 
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 
 const corsOptions = {
-  origin: API_URI,
+  origin: baseApiUrl,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 };

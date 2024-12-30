@@ -57,7 +57,7 @@ const Category = ({ category }) => {
                                 <p className={style.itemDescription}>{item.description}</p>
                             </div>
                             <p className={style.price}>
-                                {item.prices === 0 ? null : `$${(item.prices).toFixed(2)}`}
+                                {item.prices > 0 && `$${(item.prices).toFixed(2)}`}
                             </p>
                         </div>
                     </>
