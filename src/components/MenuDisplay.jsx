@@ -44,7 +44,7 @@ const MenuDisplay = () => {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 main-container-menu">
-      <motion.div
+        <motion.div
           className="mb-8"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -53,13 +53,13 @@ const MenuDisplay = () => {
             ease: "easeOut"
           }}
         >
-        <img className='m-auto' src={logo} alt="logo" />
+          <img className='m-auto' src={logo} alt="logo" />
           <p className="text-center text-xl mb-8 italic text-menu">
-          Bienvenido a nuestro menú digital. Explore nuestras deliciósas opciónes y disfruta de una experiencia.<br />
-          <span>Compartimos el gusto por lo bueno</span><br />
-          <span className='text-sm font-bold'>"Comés como en casa, pero sin lavar los platos!"
-          </span>
-        </p>
+            Bienvenido a nuestro menú digital. Explore nuestras deliciósas opciónes y disfruta de una experiencia.<br />
+            <span>Compartimos el gusto por lo bueno</span><br />
+            <span className='text-sm font-bold'>"Comés como en casa, pero sin lavar los platos!"
+            </span>
+          </p>
         </motion.div>
         <Promotion />
         {data.categories.map((category) => (
@@ -70,15 +70,15 @@ const MenuDisplay = () => {
         ))}
         <BrandsSection />
         <div>
-        {/* Weather Card - Only show on menu page */}
-        {window.location.pathname === `/${locationId}` && (
-          <div className="top-16 z-10 bg-gray-100 main-weather">
-            <WeatherCard IdApp={apiKey} />
-          </div>
-        )}
-      </div>
-      <LocationsSection />
-      <MainFooter />
+          {/* Weather Card - Only show on menu page */}
+          {window.location.pathname === `/${locationId}` && (
+            <div className="top-16 z-10 bg-gray-100 main-weather">
+              <WeatherCard IdApp={apiKey} />
+            </div>
+          )}
+        </div>
+        <LocationsSection />
+        <MainFooter />
       </main>
     </>
   );
