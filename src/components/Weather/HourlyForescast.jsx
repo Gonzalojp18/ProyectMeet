@@ -6,7 +6,6 @@ import { es } from 'date-fns/locale';
 const HourlyForecast = ({ forecast }) => {
     if (!forecast?.list) return null;
 
-    // Get next 24 hours in 2-hour intervals
     const next24Hours = forecast.list.slice(0, 12);
 
     return (
