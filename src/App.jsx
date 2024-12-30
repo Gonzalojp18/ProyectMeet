@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import MenuDisplay from './components/MenuDisplay';
 import AdminPanel from './components/AdminPanel';
@@ -28,7 +28,7 @@ function Layout({ children }) {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between h-16">
             <div className="flex space-x-4 items-center">
-              <Link to="/" className="text-gray-800 hover:text-gray-600 font-medium">
+              <Link to="/" className="text-gray-900 hover:text-gray-600 font-medium">
                 Menú
               </Link>
             </div>
@@ -36,7 +36,7 @@ function Layout({ children }) {
               {isAuthenticated ? (
                 <button
                   onClick={() => handleDelete()}
-                  className="px-4 py-2 text-gray-800 hover:text-gray-600 font-medium transition-colors duration-200"
+                  className="px-4 py-2 text-gray-300 hover:text-gray-600 font-medium transition-colors duration-200"
                 >
                   Cerrar Sesión
                 </button>
