@@ -69,14 +69,6 @@ const MenuDisplay = () => {
           />
         ))}
         <BrandsSection />
-        <div>
-        {/* Weather Card - Only show on menu page */}
-        {window.location.pathname === `/${locationId}` && (
-          <div className="top-16 z-10 bg-gray-100 main-weather">
-            <WeatherCard IdApp={apiKey} />
-          </div>
-        )}
-      </div>
       <LocationsSection />
       <MainFooter />
       </main>

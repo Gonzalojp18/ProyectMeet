@@ -56,6 +56,9 @@
 .container-default{
   overflow: hidden;
 }
+.container-featured{
+  background-image: linear-gradient(to right, #f5f5e0, #f4f5b2);
+}
 
 .box-items:nth-child(even){
   border-left: 10px solid rgb(223, 194, 8);
