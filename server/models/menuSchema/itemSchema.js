@@ -19,7 +19,6 @@ const itemSchema = new mongoose.Schema({
     },
     location3: {
       type: Number,
-      required: [true, "This field can't be empty"],
       min: 0
     }
   },
