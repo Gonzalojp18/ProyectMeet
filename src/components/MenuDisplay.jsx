@@ -55,7 +55,7 @@ const MenuDisplay = () => {
         >
           <img className='m-auto' src={logo} alt="logo" />
           <p className="text-center text-xl mb-8 italic text-menu">
-            Bienvenido a nuestro menú digital. Explore nuestras deliciósas opciónes y disfruta de una experiencia.<br />
+            Bienvenido a nuestro menú digital. Explorá nuestras deliciósas opciónes y disfrutá de una experiencia.<br />
             <span>Compartimos el gusto por lo bueno</span><br />
             <span className='text-sm font-bold'>"Comés como en casa, pero sin lavar los platos!"
             </span>
