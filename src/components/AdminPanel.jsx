@@ -53,7 +53,7 @@ const AdminPanel = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-4 py-8 bg-gray-200">
       <div className="mb-8 bg-white p-6 shadow sm:rounded-lg">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-medium text-gray-900">Configuración de Ubicación</h2>

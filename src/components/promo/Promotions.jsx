@@ -23,10 +23,10 @@ const Promotions = () => {
 
                             <div className='pb-5'>
                             <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-current">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                                     </svg>
-                                    MENU EJECUTIVO
+                                    OPCIONES PARA TODOS TUS DIAS
                                 </span>
                             </div>
                             <h3 className="text-2xl font-bold mb-2">{promotion.title}</h3>
@@ -36,7 +36,7 @@ const Promotions = () => {
                                 <button
                                     className={`${styles.buttonClass} px-6 py-2 rounded-full font-medium transition-transform hover:scale-105 mx-auto`}
                                 >
-                                    Consulta a tu camarero
+                                    Consulta a tu camarero por el plato del dia
                                 </button>
                             </div>
                         </div>

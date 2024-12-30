@@ -4,7 +4,7 @@ export const defaultStyles = {
     title: "text-5xl font-extrabold mb-8 olive-title text-left text-orange-700",
     subtitle: "text-xl text-left text-gray-500 mb-2",
     grid: "grid md:grid-cols-2 gap-2",
-    item: "rounded-xs shadow-xs flex justify-between border-b-1 border-gray-400 p-1",
+    item: "rounded-xl shadow-xs flex justify-between py-2 border-gray-400 p-1 default-items",
     itemName: "text-xl font-semibold",
     itemDescription: "text-gray-800 mt-1",
     price: "text-l font-bold mt-8 text-orange-600",

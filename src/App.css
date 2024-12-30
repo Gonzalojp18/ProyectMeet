@@ -13,27 +13,12 @@
   }
 }
 
-.nav-bar{
-  background-color: #7d9266;
-}
-
 .nav-bar-link{
   font-variant: small-caps;
 }
 
 #img{
   height: 50vh;
-}
-
-
-
-.box-slogan{
-  background-color: #161616;
-  p{
-    font-variant: small-caps;
-    display: inline-block; /* Necesario para que el transform funcione correctamente */
-    transform: scaleY(1.8); /* Estira verticalmente la fuente */
-  }
 }
 
 /* style of container category */
@@ -49,7 +34,6 @@
   margin: 15% auto 10% auto;
 }
 
-
 .container-compact{
   background-image: linear-gradient(to right, #292626, #332f2f);
 }
@@ -64,9 +48,13 @@
   border-left: 10px solid rgb(223, 194, 8);
 }
 
-/* .box-items{
-  background-color: red;
-} */
+.box-items:nth-child(odd){
+  border-right: 10px solid #424040;
+}
+
+.default-items{
+  border-bottom: 1.5px solid rgb(223, 87, 8);
+}
 
 .img-default{
   img{
@@ -149,3 +137,4 @@ html {
   visibility: visible;
   transform: translateY(0);
 }
+
