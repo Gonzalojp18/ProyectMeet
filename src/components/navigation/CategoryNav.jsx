@@ -51,7 +51,7 @@ const CategoryNav = ({ categories }) => {
   }, [categories]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-gray-900 backdrop-blur-md shadow-sm z-50 flex items-center p-2">
+    <nav className="fixed top-0 left-0 right-0 bg-gray-900 shadow-sm z-50 flex items-center p-2">
       <Link to="/">
         <img src={meetingLogo} alt="Logo" id="logo" />
       </Link>
