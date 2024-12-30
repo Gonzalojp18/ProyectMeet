@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useFetch } from '../hooks/useFetch';
 import useMenuStore from '../store/menuStore';
 import CategoryDisplay from './categories/CategoryDisplay';
 import { CategoryNav, LocationNav } from './navigation';
 import BrandsSection from './brands/BrandsSection';
 import logo from '../../public/assets/miselaneous/logosinbg.webp'
-import WeatherCard from '../components/Weather/WeatherCard'
 import Promotion from '../components/promo/Promotions'
 import { FullScreenError } from './Error'
 import { MainFooter } from '../components/footer';
@@ -14,6 +13,7 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import API_URI from '../utils/getApiUri'
 import { motion } from 'framer-motion';
+import WeatherWidget from '../components/Weather/WeatherWidget'
 
 const MenuDisplay = () => {
   const { locationId } = useParams();
@@ -44,7 +44,7 @@ const MenuDisplay = () => {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 main-container-menu">
-      <motion.div
+        <motion.div
           className="mb-8"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -53,13 +53,13 @@ const MenuDisplay = () => {
             ease: "easeOut"
           }}
         >
-        <img className='m-auto' src={logo} alt="logo" />
+          <img className='m-auto' src={logo} alt="logo" />
           <p className="text-center text-xl mb-8 italic text-menu">
-          Bienvenido a nuestro menú digital. Explore nuestras deliciósas opciónes y disfruta de una experiencia.<br />
-          <span>Compartimos el gusto por lo bueno</span><br />
-          <span className='text-sm font-bold'>"Comés como en casa, pero sin lavar los platos!"
-          </span>
-        </p>
+            Bienvenido a nuestro menú digital. Explore nuestras deliciósas opciónes y disfruta de una experiencia.<br />
+            <span>Compartimos el gusto por lo bueno</span><br />
+            <span className='text-sm font-bold'>"Comés como en casa, pero sin lavar los platos!"
+            </span>
+          </p>
         </motion.div>
         <Promotion />
         {data.categories.map((category) => (
@@ -69,8 +69,9 @@ const MenuDisplay = () => {
           />
         ))}
         <BrandsSection />
-      <LocationsSection />
-      <MainFooter />
+        <WeatherWidget />
+        <LocationsSection />
+        <MainFooter />
       </main>
     </>
   );
