@@ -76,55 +76,58 @@ const ItemForm = ({ item, locations, onSubmit, onCancel }) => {
       <div className="space-y-4">
         <label className="block text-sm font-medium text-gray-700">Disponibilidad y precios</label>
         {locations.map(location => (
-          <div key={location._id} className="flex items-center space-x-4 bg-gray-50 p-3 rounded-lg">
-            <label className="inline-flex items-center min-w-[150px]">
-              <input
-                type="checkbox"
-                checked={formData.locations[location.nameId]?.enabled ?? true}
-                onChange={(e) => setFormData({
-                  ...formData,
-                  locations: {
-                    ...formData.locations,
-                    [location.nameId]: {
-                      ...formData.locations[location.nameId],
-                      enabled: e.target.checked,
-                      price: e.target.checked ? formData.locations[location.nameId]?.price || '' : ''
-                    }
-                  }
-                })}
-                className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-              />
-              <span className="ml-2 text-sm font-medium text-gray-700">{location.name}</span>
-            </label>
-            {formData.locations[location.nameId]?.enabled && (
-              <div className="flex-1">
-                <div className="relative rounded-md shadow-sm">
-                  <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                    <span className="text-gray-500 sm:text-sm">$</span>
-                  </div>
+          <>
+            {location.nameId === 'location3' ? null :
+              <div key={location._id} className="flex items-center space-x-4 bg-gray-50 p-3 rounded-lg">
+                <label className="inline-flex items-center min-w-[150px]">
                   <input
-                    type="number"
-                    step="0.01"
-                    min="0"
-                    value={formData.locations[location.nameId]?.price ?? ''}
+                    type="checkbox"
+                    checked={formData.locations[location.nameId]?.enabled ?? true}
                     onChange={(e) => setFormData({
                       ...formData,
                       locations: {
                         ...formData.locations,
                         [location.nameId]: {
                           ...formData.locations[location.nameId],
-                          price: e.target.value
+                          enabled: e.target.checked,
+                          price: e.target.checked ? formData.locations[location.nameId]?.price || '' : ''
                         }
                       }
                     })}
-                    className="block w-full rounded-md border border-gray-300 pl-7 pr-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                    placeholder="0.00"
-                    required={formData.locations[location.nameId]?.enabled}
+                    className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                   />
-                </div>
-              </div>
-            )}
-          </div>
+                  <span className="ml-2 text-sm font-medium text-gray-700">{location.name}</span>
+                </label>
+                {formData.locations[location.nameId]?.enabled && (
+                  <div className="flex-1">
+                    <div className="relative rounded-md shadow-sm">
+                      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                        <span className="text-gray-500 sm:text-sm">$</span>
+                      </div>
+                      <input
+                        type="number"
+                        step="0.01"
+                        min="0"
+                        value={formData.locations[location.nameId]?.price ?? ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          locations: {
+                            ...formData.locations,
+                            [location.nameId]: {
+                              ...formData.locations[location.nameId],
+                              price: e.target.value
+                            }
+                          }
+                        })}
+                        className="block w-full rounded-md border border-gray-300 pl-7 pr-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                        placeholder="0.00"
+                        required={formData.locations[location.nameId]?.enabled}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>}
+          </>
         ))}
       </div>
 

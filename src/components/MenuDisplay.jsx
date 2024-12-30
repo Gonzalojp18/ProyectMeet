@@ -70,8 +70,8 @@ const MenuDisplay = () => {
         ))}
         <BrandsSection />
         <WeatherWidget />
-        <LocationsSection />
-        <MainFooter />
+      <LocationsSection />
+      <MainFooter />
       </main>
     </>
   );
