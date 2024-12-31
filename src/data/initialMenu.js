@@ -313,7 +313,7 @@ export const initialMenu = {
         },
         {
           id: 29,
-          name: "Sandwich de Pan Arabe",
+          name: "Tostado en Pan Arabe",
           description: "Jamon y Queso",
           prices: {
             location1: 4500,
@@ -322,7 +322,7 @@ export const initialMenu = {
         },
         {
           id: 30,
-          name: "Pan Arabe Mediano",
+          name: "Tostado en Pan Arabe Mediano",
           description: "Jamon, queso, tomate",
           prices: {
             location1: 4700,

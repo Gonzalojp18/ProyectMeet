@@ -6,10 +6,10 @@ const DAILY_PROMOTIONS = {
         description: "Disfruta los lunes con una selección única que combina sabores tradicionales y opciones saludables. Perfecto para empezar la semana con energía y buen gusto.",
         icon: "🌟",
         styles: {
-            background: "bg-gradient-to-r from-blue-100 to-blue-50",
-            textColor: "text-blue-900",
-            buttonClass: "bg-blue-600 text-white",
-            iconBackground: "bg-blue-200"
+            background: "bg-gradient-to-r from-gray-100 to-yellow-50",
+            textColor: "text-orange-600",
+            buttonClass: "bg-orange-600 text-white",
+            iconBackground: "bg-orange-200"
         }
     },
     2: { // Tuesday

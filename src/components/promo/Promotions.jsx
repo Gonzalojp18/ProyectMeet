@@ -32,12 +32,13 @@ const Promotions = () => {
                             <h3 className="text-2xl font-bold mb-2">{promotion.title}</h3>
                             <p className="text-lg opacity-90">{promotion.description}</p>
 
-                            <div className="mt-6 flex items-center space-x-4 mx-auto">
+                            <div className="mt-6 flex flex-col items-center space-x-4 mx-auto">
                                 <button
                                     className={`${styles.buttonClass} px-6 py-2 rounded-full font-medium transition-transform hover:scale-105 mx-auto`}
                                 >
                                     Consulta a tu camarero por el plato del dia
                                 </button>
+                                <p className='text-sm text-gray-500 pt-5 font-semibold'>***Valido solo de lunes a viernes de 12:00 a 16:00***</p>
                             </div>
                         </div>
 
