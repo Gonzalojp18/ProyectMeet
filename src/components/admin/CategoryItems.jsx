@@ -28,7 +28,7 @@ const CategoryItems = ({
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h3 className="text-lg font-medium leading-6 text-gray-900">{category.name} Items</h3>
+        <h3 className="text-2xl font-semibold leading-6 text-gray-900">{category.name} Items</h3>
         <button
           onClick={() => setIsAddingItem(true)}
           className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

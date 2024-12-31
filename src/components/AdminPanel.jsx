@@ -107,7 +107,7 @@ const AdminPanel = () => {
         <div className="space-y-8">
           {data.categories.map(category => (
             <div key={category._id} className="bg-white shadow sm:rounded-lg p-6">
-              <h3 className="text-lg font-medium leading-6 text-gray-900 mb-4">{category.name}</h3>
+              <h3 className="text-2xl font-medium leading-6 text-gray-900 mb-4">{category.name}</h3>
               <PromotionManager category={category} />
             </div>
           ))}

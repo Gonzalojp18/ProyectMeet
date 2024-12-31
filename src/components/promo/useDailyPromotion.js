@@ -17,9 +17,9 @@ const DAILY_PROMOTIONS = {
         description: "Relájate y disfruta los martes con platos pensados para reconfortarte, con combinaciones ideales para todos los gustos. Una experiencia de sabor que no querrás perderte.",
         icon: "🍝",
         styles: {
-            background: "bg-gradient-to-r from-green-100 to-green-50",
-            textColor: "text-green-900",
-            buttonClass: "bg-green-600 text-white",
+            background: "bg-gradient-to-r from-gray-200 to-green-10",
+            textColor: "text-teal-900",
+            buttonClass: "bg-teal-900 text-white",
             iconBackground: "bg-green-200"
         }
     },
@@ -28,8 +28,8 @@ const DAILY_PROMOTIONS = {
         description: "Llega al miércoles con opciones llenas de frescura y creatividad, diseñadas para alegrar tu día. Platos variados y balanceados que te sorprenderán.",
         icon: "👨‍🍳",
         styles: {
-            background: "bg-gradient-to-r from-purple-100 to-purple-50",
-            textColor: "text-purple-900",
+            background: "bg-gradient-to-r from-gray-200 to-purple-10",
+            textColor: "text-sky-900",
             buttonClass: "bg-purple-600 text-white",
             iconBackground: "bg-purple-200"
         }
@@ -39,7 +39,7 @@ const DAILY_PROMOTIONS = {
         description: "Vive la experiencia de un jueves delicioso con platos que combinan tradición y creatividad. Perfectos para cerrar la semana laboral con una sonrisa.",
         icon: "🥤",
         styles: {
-            background: "bg-gradient-to-r from-orange-100 to-orange-50",
+            background: "bg-gradient-to-r from-gray-200 to-orange-20",
             textColor: "text-orange-900",
             buttonClass: "bg-orange-600 text-white",
             iconBackground: "bg-orange-200"
@@ -50,7 +50,7 @@ const DAILY_PROMOTIONS = {
         description: "Termina la semana con estilo disfrutando de un menú que celebra el buen gusto. Perfecto para compartir y empezar el fin de semana de la mejor manera.",
         icon: "🎉",
         styles: {
-            background: "bg-gradient-to-r from-red-100 to-red-50",
+            background: "bg-gradient-to-r from-gray-200 to-red-10",
             textColor: "text-red-900",
             buttonClass: "bg-red-600 text-white",
             iconBackground: "bg-red-200"
