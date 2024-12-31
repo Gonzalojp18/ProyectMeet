@@ -50,7 +50,7 @@ const WeatherWidget = () => {
     }
 
     return (
-        <section className="max-w-7xl mx-auto px-4 py-8 bg-cyan-800">
+        <section className="max-w-7xl mx-auto px-4 py-8 bg-cyan-800 rounded-xl">
             <h2 className="sr-only">Clima actual y pronóstico</h2>
             <div className="space-y-6">
                 <CurrentWeather data={current} />
