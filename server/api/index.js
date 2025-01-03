@@ -11,7 +11,7 @@ dotenv.config();
 
 const baseApiUrl = process.env.NODE_ENV === 'development'
   ? 'http://localhost:5000'
-  : 'https://meetingresstobar.vercel.app'
+  : 'https://meetingrestobar.vercel.app'
 
 const PORT = process.env.PORT || 3000;
 
