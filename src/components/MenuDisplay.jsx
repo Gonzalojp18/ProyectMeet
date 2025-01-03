@@ -31,7 +31,7 @@ const MenuDisplay = () => {
   }
 
   return (
-    <>
+    <div className='min-h-screen bg-gray-100'>
       <header className="fixed top-0 left-0 right-0 z-50">
         <div className="bg-white/90 backdrop-blur-md shadow-sm">
           <div className="max-w-7xl mx-auto px-4">
@@ -43,7 +43,7 @@ const MenuDisplay = () => {
         <CategoryNav categories={data.categories} />
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 main-container-menu">
+      <main className="mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 main-container-menu">
         <motion.div
           className="mb-8"
           initial={{ opacity: 0, y: -20 }}
@@ -73,7 +73,7 @@ const MenuDisplay = () => {
       <LocationsSection />
       <MainFooter />
       </main>
-    </>
+    </div>
   );
 };
 

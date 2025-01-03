@@ -10,19 +10,8 @@ import { Link } from 'react-router-dom';
 import { deleteLocalStorage } from './utils/authLocalStorage';
 
 function Layout({ children }) {
-  const [showNav, setShowNav] = useState(false);
+  const showNav = true;
   let isAuthenticated = false;
-
-  useEffect(() => {
-    // Configura un temporizador para mostrar el nav después de 5 segundos
-    const timer = setTimeout(() => {
-      setShowNav(true);
-    }, 500);
-
-    // Limpia el temporizador cuando el componente se desmonte
-    return () => clearTimeout(timer);
-  }, []);
-
 
   if (getValue()) {
     isAuthenticated = true;
@@ -104,7 +93,7 @@ const ProtectRegister = ({ element }) => {
 const router = createBrowserRouter([
   {
     path: '/menu/:locationId',
-    element: <Layout><MenuDisplay /></Layout>,
+    element: <MenuDisplay />,
   },
   {
     path: '/',
