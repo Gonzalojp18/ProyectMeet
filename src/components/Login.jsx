@@ -14,8 +14,6 @@ const Login = () => {
 
   const ADMIN_VALIDATE = import.meta.env.VITE_ADMIN_CODE;
 
-  console.log(ADMIN_VALIDATE);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
