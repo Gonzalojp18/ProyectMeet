@@ -4,7 +4,7 @@ const SocialLinks = () => {
   return (
     <div className="flex space-x-4">
       <a
-        href="https://instagram.com/turestaurante"
+        href="https://www.instagram.com/meetingrestobar/"
         target="_blank"
         rel="noopener noreferrer"
         className="text-gray-400 hover:text-orange-500 transition-colors duration-300"
