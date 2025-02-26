@@ -143,7 +143,7 @@ export const initialMenu = {
       id: 3,
       name: "Nuestros Platos",
       image: {
-        url: '../assets/almuerzos/pizza.webp',
+        url: '../assets/almuerzos/altrepizza.jpeg',
         position: "bottom", // imagen arriba de la categoría
         alt: "pizza"
       },
